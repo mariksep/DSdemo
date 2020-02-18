@@ -1,5 +1,3 @@
-
-
 const getCourses = async () => {
   let response;
   try {
@@ -12,6 +10,9 @@ const getCourses = async () => {
   }
 };
 
+/**
+ *  Fetch current weather-data (in Myyrmäki) and convert it to json
+ */
 const getWeatherData = async () => {
   const weatherURL = `http://api.openweathermap.org/data/2.5/weather?zip=01600,fi&appid=c13ea6073dd0700495786ba6f93af408&units=metric`;
   try {
