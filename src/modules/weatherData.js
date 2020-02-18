@@ -1,10 +1,12 @@
 import { getWeatherData } from "./network";
 
 /**
- * Get current weather data and add values to one object
- * @returns Object that contains weather values
+ * Display current weather data in HTML
  */
-const currentWeatherData = async () => {
+const displayWeatherData = async () => {
+  const weatherMain = document.querySelector(".weatherContent");
+  const weatherHeader = document.querySelector(".weatherHeader");
+
   const data = await getWeatherData();
 
   // Round temperature-values by one decimal
@@ -13,10 +15,17 @@ const currentWeatherData = async () => {
   const windSpeed = data.wind.speed;
   const iconId = data.weather[0].id;
 
-  const weather = { temperature, feelsLike, windSpeed, iconId };
-  return weather;
+  const headerContent = `<h2>Myyrmäki</h2>
+                          <i class="wi wi-owm-${iconId} weatherIcon"></i>`;
+
+  const mainContent = `<p>Lämpötila: ${temperature}°C</p>
+                      <p>Tuntuu kuin: ${feelsLike}°C</p>
+                      <p>Tuulen nopeus: ${windSpeed}m/s</p>`;
+
+  weatherHeader.innerHTML = headerContent;
+  weatherMain.innerHTML = mainContent;
 };
 
-const WeatherData = { currentWeatherData };
+const WeatherData = { displayWeatherData };
 
 export default WeatherData;
