@@ -10,12 +10,12 @@
     display: flex;
     text-align: center;
     background: #ffffff;
-   
+    padding-right: 40px;
     justify-content: space-between;
 }
 
 .main_content {
-    margin: 10vh;
+    margin: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
