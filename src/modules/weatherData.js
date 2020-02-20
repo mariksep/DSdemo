@@ -8,7 +8,7 @@ const displayWeatherData = async () => {
   const weatherHeader = document.querySelector(".weatherHeader");
 
   const data = await getWeatherData();
-
+console.log('data', data);
   // Round temperature-values by one decimal
   const temperature = Math.round(data.main.temp * 10) / 10;
   const feelsLike = Math.round(data.main.feels_like * 10) / 10;
