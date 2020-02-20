@@ -6,4 +6,4 @@ Data.getInit();
 
 WeatherData.displayWeatherData();
 // Call every hour
-//setInterval(displayWeather, 60*60*1000);
+//setInterval(WeatherData.displayWeatherData, 60*60*1000);
