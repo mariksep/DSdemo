@@ -5,31 +5,46 @@
 
 .header {
     width: 100vw;
-    height: 40px;
-    display: block;
+   
+   /* display: block;*/
+    display: flex;
     text-align: center;
+    background: #ffffff;
+    padding-right: 40px;
+    justify-content: space-between;
 }
 
 .main_content {
-    margin: 10vh;
+    margin: 5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    /*align-items: center;*/
 }
 
 .card {
-    border: black solid 1px;
+   /* border: black solid 1px;*/
     border-radius: 15px;
-    box-shadow:10px 5px 10px #888888 ;
+   /* box-shadow:10px 5px 10px #888888 ;*/
     height: 50%;
     width: 50%;
     margin: 10px;
+    background-color: #ffffff;
 }
 
 .card>.menu {
     padding: 5px;
+    
 }
+
+.card>.menu ul li {
+    text-decoration: none;
+}
+
+menu ul li {
+    text-decoration: none;
+}
+
 
 .weatherHeader {
   display: flex;
