@@ -1,7 +1,22 @@
+/**
+ *  Fetch current lunch-data  and convert it to json
+ */
+
 const getCourses = async () => {
   let response;
+  // searches for the current day
+  let date = new Date();
+  let  year = date.getFullYear();
+  let month = date.getMonth();
+  let day = date.getDate();
+  let nowM = (month+1);
+  // if day or month is <10 adds 0 (ex. 01 )
+  if(day<10){day="0"+day;};
+  if(nowM<10){nowM="0"+nowM;};
+  // date in order YYYY-MM-DD
+  let nowDate = year+"-"+nowM+"-"+day;
   try {
-    response = await fetch(`https://www.sodexo.fi/ruokalistat/output/weekly_json/152`);
+    response = await fetch("https://www.sodexo.fi/ruokalistat/output/daily_json/152/"+nowDate);
 
     let data = await response.json();
     return data;
@@ -10,4 +25,96 @@ const getCourses = async () => {
   }
 };
 
-export{ getCourses};
+/**
+ *  Fetch current weather-data (in Myyrmäki) and convert it to json
+ */
+const getWeatherData = async () => {
+  const weatherURL = `http://api.openweathermap.org/data/2.5/weather?zip=01600,fi&appid=c13ea6073dd0700495786ba6f93af408&units=metric`;
+  try {
+    const response = await fetch(weatherURL);
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.log('Error in fetching weather data', error);
+  }
+};
+/**
+ *  Fetch current transit-data  and convert it to json
+ *  heading towards Myyrmäki
+ */
+const getTransitO = async ()=>{
+  let response;
+  try {
+    response = await fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql',
+    {
+      method: 'POST',
+      headers: {'Content-Type': 'application/graphql'},
+      body: `{
+        stop(id: "HSL:4150201") {
+          name
+          desc
+          stoptimesWithoutPatterns {
+          realtimeDeparture
+          headsign
+            realtimeArrival
+            trip {
+              route {
+                shortName
+              }
+            }
+
+          }
+        }
+      }
+      `, });
+
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('error', error.message);
+  }
+
+
+};
+/**
+ *  Fetch current transit-data  and convert it to json
+ *  heading away Myyrmäki
+ */
+
+const getTransitV = async ()=>{
+  let response;
+  try {
+    response = await fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql',
+    {
+      method: 'POST',
+      headers: {'Content-Type': 'application/graphql'},
+      body: `{
+        stop(id: "HSL:4150296") {
+          name
+          desc
+          stoptimesWithoutPatterns {
+          realtimeDeparture
+          headsign
+            realtimeArrival
+            trip {
+              route {
+                shortName
+              }
+            }
+
+          }
+        }
+      }
+      `, });
+
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('error', error.message);
+  }
+
+
+};
+
+
+export { getCourses, getWeatherData, getTransitO, getTransitV };
