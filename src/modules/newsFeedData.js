@@ -1,34 +1,50 @@
 import { getNewsFeedData } from "./network";
 
-const newsDiv = document.querySelector('.newsFeed');
-
+/**
+ * Display first three news from METKAs RSS-feed in HTML
+ */
 const displayNewsFeed = async () => {
-  const response = await getNewsFeedData();
-  const responseDoc = new DOMParser().parseFromString(response, 'application/xml');
+  // Get XML-string and parse it into a DOM document
+  const responseXML = await getNewsFeedData();
+  const responseDocument = new DOMParser().parseFromString(responseXML, 'application/xml');
 
-  let j = 2;
-  for (let i = 1; i < 4; i++) {
+  let titleIndex = 2;
+  let descriptionIndex = 1;
+
+  const newsFeedSection = document.querySelector('.newsFeed');
+
+  // Create first three news
+  for (let dateIndex = 0; dateIndex < 3; dateIndex++) {
+    // Put every news to own articles
     const article = document.createElement('article');
-    const tagi = responseDoc.getElementsByTagName('title')[j].textContent;
-    const desc = responseDoc.getElementsByTagName('description')[i].textContent;
-    let date = responseDoc.getElementsByTagName('pubDate')[i].textContent;
 
-    console.log('tagi,', tagi);
+    // Save info of the news to variables
+    const title = responseDocument.getElementsByTagName('title')[titleIndex].textContent;
+    const description = responseDocument.getElementsByTagName('description')[descriptionIndex].textContent;
+    const date = responseDocument.getElementsByTagName('pubDate')[dateIndex].textContent;
+
+    // Convert published day to DD-MM-YYYY form
     let day = new Date(date);
-    console.log(`${day.getDate()}.${day.getMonth()+1}.${day.getFullYear()}`);
     day = `${day.getDate()}.${day.getMonth()+1}.${day.getFullYear()}`;
 
-    const h1 = document.createElement('h1');
-    h1.textContent = tagi;
-    const h6 = document.createElement('h6');
-    h6.textContent = day;
-    const p = document.createElement('p');
-    p.textContent = desc;
-    article.appendChild(h1);
-    article.appendChild(h6);
-    article.append(p);
-    j++;
-    newsDiv.appendChild(article);
+    // Use saved variables as textContent for the created HTML-elements
+    const header = document.createElement('h1');
+    header.textContent = title;
+
+    const publishDay = document.createElement('h5');
+    publishDay.textContent = day;
+
+    const content = document.createElement('p');
+    content.textContent = description;
+
+    // Append news to the article and HTML
+    article.appendChild(header);
+    article.appendChild(publishDay);
+    article.appendChild(content);
+    newsFeedSection.appendChild(article);
+
+    titleIndex++;
+    descriptionIndex++;
   }
 };
 

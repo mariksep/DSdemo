@@ -3,16 +3,16 @@
  */
 const getCourses = async () => {
   let response;
-  // searches for the current day
+  /* searches for the current day*/
   let date = new Date();
   let  year = date.getFullYear();
   let month = date.getMonth();
   let day = date.getDate();
   let nowM = (month+1);
-  // if day or month is <10 adds 0 (ex. 01 )
+  /* if day or month is <10 adds 0 (exmp. 01 )*/
   if(day<10){day="0"+day;};
   if(nowM<10){nowM="0"+nowM;};
-  // date in order YYYY-MM-DD
+  /* date in order YYYY-MM-DD*/
   let nowDate = year+"-"+nowM+"-"+day;
   try {
     response = await fetch("https://www.sodexo.fi/ruokalistat/output/daily_json/152/"+nowDate);
@@ -30,6 +30,7 @@ const getCourses = async () => {
  */
 const getWeatherData = async () => {
   const weatherURL = `http://api.openweathermap.org/data/2.5/weather?zip=01600,fi&appid=c13ea6073dd0700495786ba6f93af408&units=metric`;
+
   try {
     const response = await fetch(weatherURL);
     const json = await response.json();
@@ -117,15 +118,14 @@ const getTransitV = async ()=>{
 
 
 /**
- *  Get news from METKAs RSS-feed and convert to XML-text
+ *  Get news from METKAs RSS-feed and convert to XML-string
  */
 const getNewsFeedData = async () => {
   const newsFeedURL = 'https://cors-anywhere.herokuapp.com/http://metkaweb.fi/category/ajankohtaista/feed/';
+
   try {
     const data = await fetch(newsFeedURL);
-    console.log('data', data);
     const response = await data.text();
-    //console.log('resp', response);
     return response;
   } catch (error) {
     console.log('Error in getting newsFeed-data', error);

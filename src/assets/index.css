@@ -1,50 +1,107 @@
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  width: 100vw;
+  background: #ffffff;
+
 }
 
 .header {
-    width: 100vw;
-   
-   /* display: block;*/
-    display: flex;
-    text-align: center;
-    background: #ffffff;
-    padding-right: 40px;
-    justify-content: space-between;
+  /* display: block;*/
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1 {
+  border-radius: 15px;
+  padding: 20px;
+  background-color: #f16e20;
+  margin-top: 0px;
+  color: #ffffff;
+  font-family: "Roboto Slab",serif;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  align-items: stretch;
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+  padding: 4vh 2vh;
+  background-color: #ffffff;
+}
+
+header li {
+  display: inline-block;
+  padding-right: 10vh;
+  padding-left: 5vh;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+header ul a.active {
+  background-color: #f16e20;
+}
+
+.header ul a {
+  display: block;
+  /*width: 100%;*/
+  margin: 0 0 0.25em;
+  padding: 0.6rem;
+  background-color:  #fe9257;
+  border-radius: 15px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+body {
+  margin: 0px;
 }
 
 .main_content {
-    margin: 5vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    /*align-items: center;*/
+  margin: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
 }
 
 .card {
-   /* border: black solid 1px;*/
-    border-radius: 15px;
-   /* box-shadow:10px 5px 10px #888888 ;*/
-    height: 50%;
-    width: 50%;
-    margin: 10px;
-    background-color: #ffffff;
+  /* border: black solid 1px;*/
+  border-radius: 15px;
+  box-shadow:10px 5px 10px #888888 ;
+  width: 40vw;
+  height: 40vh;
+  margin: 0.5vh;
+  background-color: #ffffff;
 }
 
 .card>.menu {
-    padding: 5px;
-    
+  padding: 5px;
+}
+
+h3 {
+  text-align: center;
 }
 
 .card>.menu ul li {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 menu ul li {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 
 .weatherHeader {
   display: flex;
@@ -61,4 +118,14 @@ menu ul li {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.newsFeed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsFeed > article {
+  width: 90vw;
 }
