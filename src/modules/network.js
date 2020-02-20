@@ -4,16 +4,16 @@
 
 const getCourses = async () => {
   let response;
-  // searches for the current day
+  /* searches for the current day*/
   let date = new Date();
   let  year = date.getFullYear();
   let month = date.getMonth();
   let day = date.getDate();
   let nowM = (month+1);
-  // if day or month is <10 adds 0 (ex. 01 )
+  /* if day or month is <10 adds 0 (exmp. 01 )*/
   if(day<10){day="0"+day;};
   if(nowM<10){nowM="0"+nowM;};
-  // date in order YYYY-MM-DD
+  /* date in order YYYY-MM-DD*/
   let nowDate = year+"-"+nowM+"-"+day;
   try {
     response = await fetch("https://www.sodexo.fi/ruokalistat/output/daily_json/152/"+nowDate);
