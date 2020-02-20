@@ -1,7 +1,21 @@
+/**
+ *  Fetch current lunch-data  and convert it to json
+ */
 const getCourses = async () => {
   let response;
+  // searches for the current day
+  let date = new Date();
+  let  year = date.getFullYear();
+  let month = date.getMonth();
+  let day = date.getDate();
+  let nowM = (month+1);
+  // if day or month is <10 adds 0 (ex. 01 )
+  if(day<10){day="0"+day;};
+  if(nowM<10){nowM="0"+nowM;};
+  // date in order YYYY-MM-DD
+  let nowDate = year+"-"+nowM+"-"+day;
   try {
-    response = await fetch(`https://www.sodexo.fi/ruokalistat/output/weekly_json/152`);
+    response = await fetch("https://www.sodexo.fi/ruokalistat/output/daily_json/152/"+nowDate);
 
     let data = await response.json();
     return data;
@@ -9,6 +23,7 @@ const getCourses = async () => {
     console.error('error', error.message);
   }
 };
+
 
 /**
  *  Fetch current weather-data (in Myyrmäki) and convert it to json
@@ -24,4 +39,98 @@ const getWeatherData = async () => {
   }
 };
 
-export { getCourses, getWeatherData };
+
+/**
+ *  Fetch current transit-data  and convert it to json
+ *  heading towards Myyrmäki
+ */
+const getTransitO = async ()=>{
+  let response;
+  try {
+    response = await fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql',
+    {
+      method: 'POST',
+      headers: {'Content-Type': 'application/graphql'},
+      body: `{
+        stop(id: "HSL:4150201") {
+          name
+          desc
+          stoptimesWithoutPatterns {
+          realtimeDeparture
+          headsign
+            realtimeArrival
+            trip {
+              route {
+                shortName
+              }
+            }
+
+          }
+        }
+      }
+      `, });
+
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('error', error.message);
+  }
+};
+
+
+/**
+ *  Fetch current transit-data  and convert it to json
+ *  heading away Myyrmäki
+ */
+const getTransitV = async ()=>{
+  let response;
+  try {
+    response = await fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql',
+    {
+      method: 'POST',
+      headers: {'Content-Type': 'application/graphql'},
+      body: `{
+        stop(id: "HSL:4150296") {
+          name
+          desc
+          stoptimesWithoutPatterns {
+          realtimeDeparture
+          headsign
+            realtimeArrival
+            trip {
+              route {
+                shortName
+              }
+            }
+
+          }
+        }
+      }
+      `, });
+
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('error', error.message);
+  }
+};
+
+
+/**
+ *  Get news from METKAs RSS-feed and convert to XML-text
+ */
+const getNewsFeedData = async () => {
+  const newsFeedURL = 'https://cors-anywhere.herokuapp.com/http://metkaweb.fi/category/ajankohtaista/feed/';
+  try {
+    const data = await fetch(newsFeedURL);
+    console.log('data', data);
+    const response = await data.text();
+    //console.log('resp', response);
+    return response;
+  } catch (error) {
+    console.log('Error in getting newsFeed-data', error);
+  }
+};
+
+
+export { getCourses, getWeatherData, getTransitO, getTransitV, getNewsFeedData };
