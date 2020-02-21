@@ -87,21 +87,24 @@ body {
   background-color: #ffffff;
 }
 
-.card>.menu {
-  padding: 5px;
-}
-
 h3 {
   text-align: center;
 }
 
 .card>.menu ul li {
   text-decoration: none;
+
+}
+.menu>h1 {
+  width: 100%;
+}
+.menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-menu ul li {
-  text-decoration: none;
-}
+
 
 .weatherHeader {
   display: flex;

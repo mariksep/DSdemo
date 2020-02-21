@@ -12,14 +12,14 @@ let menu = document.querySelector(".menu");
       const data = await getCourses();
       const objl = Object.keys(data.courses).length;
       const title = document.createElement("h1");
+       menu.appendChild(title);
       title.innerHTML= data.meta.ref_title;
         for(let i= 1; i<=objl; i++){
-          let li = document.createElement("li");
-          li.innerHTML= data.courses[i].title_fi;
-          ul.appendChild(li);
+          let p = document.createElement("p");
+          p.innerHTML= data.courses[i].title_fi;
+        menu.appendChild(p);
         }
-        menu.appendChild(title);
-        menu.appendChild(ul);
+
     }catch (e) {
        console.log('error' + e);
      }

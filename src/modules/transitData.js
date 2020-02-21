@@ -19,7 +19,7 @@ const getTransitDataV = () =>{
             title.innerHTML= data.data.stop.name + " V1596";
             h.innerHTML = data.data.stop.desc;
           for(let i = 0; i<objl; i++){
-            let li = document.createElement("li");
+            let li = document.createElement("p");
 
             /*muuttaa saadut sekuntit kelloajaksi*/
             let tunnit =Math.floor(data.data.stop.stoptimesWithoutPatterns[i].realtimeDeparture/60/60);
@@ -63,7 +63,7 @@ const getTransitDataV = () =>{
           title.innerHTML= data.data.stop.name + " V1501";
           h.innerHTML = data.data.stop.desc;
             for(let i = 0; i<objl; i++){
-              let li = document.createElement("li");
+              let li = document.createElement("p");
 
               /*muuttaa saadut sekuntit kelloajaksi*/
               let tunnit =Math.floor(data.data.stop.stoptimesWithoutPatterns[i].realtimeDeparture/60/60);
