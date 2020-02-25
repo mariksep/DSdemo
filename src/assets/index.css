@@ -53,7 +53,7 @@ header li {
   box-shadow:10px 5px 10px #888888 ;
   width: 40vw;
   height: 40vh;
-  margin: 0.5vh;
+  margin: 2vh;
 }
 h1 {
   border-radius: 15px;
@@ -63,20 +63,6 @@ h1 {
   font-family: "Roboto Slab",serif;
 }
 
-.menu{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.menu>p{
-  text-align: center;
-}
-
-
-h3 {
-  text-align: center;
-}
 
 .weatherHeader {
   display: flex;
@@ -94,6 +80,48 @@ h3 {
   flex-direction: column;
   align-items: center;
 }
+
+
+.menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: large;
+
+}
+
+.menu>p{
+  padding: 1vh;
+}
+.menuItems{
+  display: flex;
+}
+h3 {
+  text-align: center;
+}
+.transitV{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: x-large;
+
+}
+.transitV>p{
+  padding: 1vh;
+
+}
+.transitO{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: x-large;
+}
+.transitO>p{
+  padding: 1vh;
+
+}
+
+
 
 .newsFeed {
   display: flex;
