@@ -6,20 +6,22 @@ import {getTransitO, getTransitV} from './network';
 
 
 const getTransitDataV = () =>{
-  let ul = document.createElement("ul");
   let menu = document.querySelector(".transitV");
+  let title = document.querySelector(".titleTV");
+
     const getDataV=async () => {
       try{
         /* hakee network js tiedot*/
         let data = await getTransitV();
         const objl = Object.keys(data.data.stop.stoptimesWithoutPatterns).length;
-        const title = document.createElement("h1");
+        title.innerHTML= data.data.stop.name + " V1596";
         let h=document.createElement("h3");
+        menu.appendChild(h);
+        h.innerHTML = data.data.stop.desc;
 
-            title.innerHTML= data.data.stop.name + " V1596";
-            h.innerHTML = data.data.stop.desc;
-          for(let i = 0; i<objl; i++){
-            let li = document.createElement("p");
+
+            for(let i = 0; i<objl; i++){
+            let p = document.createElement("p");
 
             /*muuttaa saadut sekuntit kelloajaksi*/
             let tunnit =Math.floor(data.data.stop.stoptimesWithoutPatterns[i].realtimeDeparture/60/60);
@@ -32,14 +34,12 @@ const getTransitDataV = () =>{
             }
             let arrivalTime= tunnit+":"+ minuutit;
             /* lisää li elementtiin bussin numeron ajan jolloin bussi on pysäkillä ja sunnan johon bussi on menossa*/
-            li.innerHTML= data.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName +
-            " "+ data.data.stop.stoptimesWithoutPatterns[i].headsign + " Saapumisaika: " +  arrivalTime ;
-            ul.appendChild(li);
+            p.innerHTML="<strong>"+ data.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName+"</strong>  " +
+            " "+ data.data.stop.stoptimesWithoutPatterns[i].headsign + " <strong>" +  arrivalTime +"</strong>";
+            menu.appendChild(p);
           }
 
-          menu.appendChild(title);
-          menu.appendChild(h);
-          menu.appendChild(ul);
+
       }catch (e) {
          console.log('error' + e);
        }
@@ -50,20 +50,20 @@ const getTransitDataV = () =>{
 
 /* hakee tiedot hsl apista pysäkki numerolla 4150201 (myyrmäen juna-asemaa kohden)*/
   const getTransitDataO = () =>{
-    let ul = document.createElement("ul");
     let menu = document.querySelector(".transitO");
+    const title = document.querySelector(".titleTO");
+
       const getDataO=async () => {
         /* hakee network js tiedot*/
         try{
           let data = await getTransitO();
           const objl = Object.keys(data.data.stop.stoptimesWithoutPatterns).length;
-          const title = document.createElement("h1");
           let h=document.createElement("h3");
-
+          menu.appendChild(h);
           title.innerHTML= data.data.stop.name + " V1501";
           h.innerHTML = data.data.stop.desc;
             for(let i = 0; i<objl; i++){
-              let li = document.createElement("p");
+              let p = document.createElement("p");
 
               /*muuttaa saadut sekuntit kelloajaksi*/
               let tunnit =Math.floor(data.data.stop.stoptimesWithoutPatterns[i].realtimeDeparture/60/60);
@@ -76,15 +76,13 @@ const getTransitDataV = () =>{
               }
               let arrivalTime= tunnit+":"+minuutit;
               /* lisää li elementtiin bussin numeron ajan jolloin bussi on pysäkillä ja sunnan johon bussi on menossa*/
-              li.innerHTML= data.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName+
-              " "+ data.data.stop.stoptimesWithoutPatterns[i].headsign +" Saapumisaika: " +  arrivalTime ;
+              p.innerHTML= "<strong>"+ data.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName+"</strong>  " +
+              " "+ data.data.stop.stoptimesWithoutPatterns[i].headsign +" <strong>" +  arrivalTime +"</strong>" ;
 
-              ul.appendChild(li);
+              menu.appendChild(p);
             }
 
-            menu.appendChild(title);
-            menu.appendChild(h);
-            menu.appendChild(ul);
+
         }catch (e) {
            console.log('error' + e);
          }
