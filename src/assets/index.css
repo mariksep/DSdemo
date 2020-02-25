@@ -91,11 +91,9 @@ h1 {
 }
 
 .menu>p{
-  padding: 1vh;
+  padding: 0.5vh;
 }
-.menuItems{
-  display: flex;
-}
+
 h3 {
   text-align: center;
 }
@@ -120,8 +118,6 @@ h3 {
   padding: 1vh;
 
 }
-
-
 
 .newsFeed {
   display: flex;
