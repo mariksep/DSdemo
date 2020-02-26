@@ -14,7 +14,7 @@ let menu = document.querySelector(".menu");
       title.innerHTML= data.meta.ref_title;
         for(let i= 1; i<=objl; i++){
           let p = document.createElement("p");
-          p.innerHTML=  data.courses[i].title_fi  +" " +data.courses[i].properties +"  " +data.courses[i].price ;
+          p.innerHTML=  data.courses[i].title_fi  +" " +data.courses[i].properties +" " +data.courses[i].price ;
         menu.appendChild(p);
         }
 
