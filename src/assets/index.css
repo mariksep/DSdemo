@@ -51,8 +51,7 @@ header li {
 .card {
   border-radius: 15px;
   box-shadow:10px 5px 10px #888888 ;
-  width: 40vw;
-  height: 40vh;
+
   margin: 2vh;
 }
 h1 {
