@@ -10,6 +10,7 @@ const getTransitDataV = () =>{
   let title = document.querySelector(".titleTV");
 
     const getDataV=async () => {
+      menu.innerHTML= "";
       try{
         /* hakee network js tiedot*/
         let data = await getTransitV();
@@ -21,6 +22,7 @@ const getTransitDataV = () =>{
 
 
             for(let i = 0; i<objl; i++){
+
             let p = document.createElement("p");
 
             /*muuttaa saadut sekuntit kelloajaksi*/
@@ -54,6 +56,7 @@ const getTransitDataV = () =>{
     const title = document.querySelector(".titleTO");
 
       const getDataO=async () => {
+        menu.innerHTML= "";
         /* hakee network js tiedot*/
         try{
           let data = await getTransitO();
