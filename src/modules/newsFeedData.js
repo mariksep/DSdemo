@@ -13,6 +13,7 @@ const displayNewsFeed = async () => {
 
   const newsFeedSection = document.querySelector('.newsFeed');
 
+  console.log(responseDocument);
   // Create first three news
   for (let dateIndex = 0; dateIndex < 3; dateIndex++) {
     // Put every news to own articles
