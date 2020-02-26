@@ -13,17 +13,14 @@ header {
 
 .main_content {
   margin: 5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+
 
 }
 
 .card {
   border-radius: 15px;
   box-shadow:10px 5px 10px #888888 ;
-
+  width: 100vw;
   margin: 2vh;
 }
 
@@ -50,22 +47,39 @@ h1 {
   display: flex;
   align-items: center;
 }
+.menus{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
 
 .weatherContent > p {
   font-size: 3vw;
 }
 
 .menu{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: large;
+ text-align: center;
+  font-size: xx-large;
 
 }
 
 .menu>p{
   padding: 0.5vh;
 }
+
+.menuE{
+  text-align: center;
+
+  font-size: xx-large;
+
+}
+
+.menuE>p{
+  padding: 0.5vh;
+}
+
+
 
 h3 {
   text-align: center;
