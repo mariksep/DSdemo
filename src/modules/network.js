@@ -16,7 +16,6 @@ const getCourses = async () => {
   let nowDate = year+"-"+nowM+"-"+day;
   try {
     response = await fetch("https://www.sodexo.fi/ruokalistat/output/daily_json/152/"+nowDate);
-
     let data = await response.json();
     return data;
   } catch (error) {
