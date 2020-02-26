@@ -1,19 +1,29 @@
 import { getNewsFeedData } from "./network";
 
+const englishNewsFeedURL = 'https://cors-anywhere.herokuapp.com/http://metkaweb.fi/category/ajankohtaista/feed/?lang=en';
+const finnishNewsFeedURL = 'https://cors-anywhere.herokuapp.com/http://metkaweb.fi/category/ajankohtaista/feed/';
+
 /**
- * Display first three news from METKAs RSS-feed in HTML
+ * Display first three news from METKAs RSS-feed in HTML in Finnish and in English
  */
-const displayNewsFeed = async () => {
-  // Get XML-string and parse it into a DOM document
-  const responseXML = await getNewsFeedData();
+const displayNewsFeed = async (language) => {
+  let responseXML;
+
+  // Choose the correct language and get the XML-string
+  if (language === 'finnish') {
+    responseXML = await getNewsFeedData(finnishNewsFeedURL);
+  } else {
+    responseXML = await getNewsFeedData(englishNewsFeedURL);
+  }
+
+  // Parse XML-string to DOM document
   const responseDocument = new DOMParser().parseFromString(responseXML, 'application/xml');
 
   let titleIndex = 2;
   let descriptionIndex = 1;
 
-  const newsFeedSection = document.querySelector('.newsFeed');
+  const newsFeedSection = document.querySelector(`.${language}NewsFeed`);
 
-  console.log(responseDocument);
   // Create first three news
   for (let dateIndex = 0; dateIndex < 3; dateIndex++) {
     // Put every news to own articles
@@ -21,8 +31,13 @@ const displayNewsFeed = async () => {
 
     // Save info of the news to variables
     const title = responseDocument.getElementsByTagName('title')[titleIndex].textContent;
-    const description = responseDocument.getElementsByTagName('description')[descriptionIndex].textContent;
+    let description = responseDocument.getElementsByTagName('description')[descriptionIndex].textContent;
     const date = responseDocument.getElementsByTagName('pubDate')[dateIndex].textContent;
+
+    // If description contains square brackets in the end, remove them and replace with three dots
+    if (description.charAt(description.length -1) === ']') {
+      description = description.substring(0, description.length - 10) + '...';
+    }
 
     // Convert published day to DD-MM-YYYY form
     let day = new Date(date);
