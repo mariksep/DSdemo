@@ -17,6 +17,10 @@ header {
 
 }
 
+main {
+background-color: aqua;
+
+}
 .card {
   border-radius: 15px;
   
