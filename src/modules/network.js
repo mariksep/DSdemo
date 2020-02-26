@@ -120,11 +120,9 @@ const getTransitV = async ()=>{
 /**
  *  Get news from METKAs RSS-feed and convert to XML-string
  */
-const getNewsFeedData = async () => {
-  const newsFeedURL = 'https://cors-anywhere.herokuapp.com/http://metkaweb.fi/category/ajankohtaista/feed/';
-
+const getNewsFeedData = async (url) => {
   try {
-    const data = await fetch(newsFeedURL);
+    const data = await fetch(url);
     const response = await data.text();
     return response;
   } catch (error) {

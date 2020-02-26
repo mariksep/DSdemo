@@ -4,29 +4,25 @@
     <meta charset="UTF-8" />
     <title>Digital Signage</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="assets/index.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
-
-          <img src="assets/metropolia.svg" alt="metropolia-logo">
-
+  <img src="assets/metropolia.svg" alt="metropolia-logo">
+  <div class="weather">
+    <div class="weatherHeader"></div>
+    <div class="weatherContent"></div>
+  </div>
 </header>
-
 
 <!--
   section 1
-  -wearher
   -transit
 -->
       <section class="main_content">
-        <div class="card">
-            <h1>Sää</h1>
-          <div class="weatherHeader"></div>
-          <div class="weatherContent"></div>
-        </div>
         <div class="card">
           <h1 class="titleTV"></h1>
           <div class="transitV"></div>
@@ -35,8 +31,6 @@
           <h1 class="titleTO"></h1>
           <div class="transitO"></div>
         </div>
-
-
       </section>
       <!--
   section 2
@@ -60,10 +54,8 @@
 -->
 
     <section class="main_content">
-      <div class="newsFeed">
-
-      </div>
-
+      <div class="finnishNewsFeed"></div>
+      <div class="englishNewsFeed"></div>
     </section>
     <!--
   section 4

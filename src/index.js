@@ -19,7 +19,6 @@ viewCarousel(0, 10);
 
 
 
-
 menuData.getInit();
 menuData.getInitE();
 
@@ -33,5 +32,6 @@ setInterval(transitData.getTransitDataV, 60*1000);
 setInterval(transitData.getTransitDataO, 60*1000);
 
 
-NewsFeedData.displayNewsFeed();
+NewsFeedData.displayNewsFeed('finnish');
+NewsFeedData.displayNewsFeed('english');
 
