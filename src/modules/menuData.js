@@ -4,19 +4,17 @@ import {getCourses} from './network';
 /**
  * Display current lunch data in HTML
  */
+let title = document.querySelector(".titleM");
 const getInit = () =>{
-let ul = document.createElement("ul");
 let menu = document.querySelector(".menu");
   const getCoursesSodexo =async () => {
     try{
       const data = await getCourses();
       const objl = Object.keys(data.courses).length;
-      const title = document.createElement("h1");
-       menu.appendChild(title);
       title.innerHTML= data.meta.ref_title;
         for(let i= 1; i<=objl; i++){
           let p = document.createElement("p");
-          p.innerHTML= data.courses[i].title_fi;
+          p.innerHTML=  data.courses[i].title_fi  +" " +data.courses[i].properties +" " +data.courses[i].price ;
         menu.appendChild(p);
         }
 
