@@ -95,16 +95,16 @@ h3 {
   text-decoration: none;
 
 }
+
 .menu>h1 {
   width: 100%;
 }
-.menu{
+
+.menu {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-
 
 .weatherHeader {
   display: flex;
