@@ -4,7 +4,7 @@ import {getCourses} from './network';
 /**
  * Display current lunch data in fin
  */
-let title = document.querySelector(".titleM");
+let title = document.querySelector(".title");
 const getInit = () =>{
 let menu = document.querySelector(".menu");
   const getCoursesSodexo =async () => {
@@ -28,14 +28,12 @@ let menu = document.querySelector(".menu");
 /**
  * Display current lunch data  in En
  */
-let titleE = document.querySelector(".titleE");
 const getInitE = () =>{
 let menu = document.querySelector(".menuE");
   const getCoursesSodexo =async () => {
     try{
       const data = await getCourses();
       const objl = Object.keys(data.courses).length;
-      titleE.innerHTML= data.meta.ref_title;
         for(let i= 1; i<=objl; i++){
           let p = document.createElement("p");
           p.innerHTML=  data.courses[i].title_en +"<br>"+data.courses[i].properties+"<br>" +data.courses[i].price ;
