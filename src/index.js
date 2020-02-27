@@ -2,7 +2,7 @@ import menuData from "./modules/menuData";
 import WeatherData from "./modules/weatherData";
 import transitData from "./modules/transitData";
 import NewsFeedData from "./modules/newsFeedData";
-
+/*
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
   for (const view of views) {
@@ -17,7 +17,7 @@ const viewCarousel = (activeViewIndex, duration) => {
 };
 viewCarousel(0, 10);
 
-
+*/
 
 menuData.getInit();
 menuData.getInitE();
