@@ -1,7 +1,7 @@
 /**
  *  Fetch current lunch-data  and convert it to json
  */
-const getCourses = async () => {
+const getCourses = async (num) => {
   let response;
   /* searches for the current day*/
   let date = new Date();
@@ -15,7 +15,7 @@ const getCourses = async () => {
   /* date in order YYYY-MM-DD*/
   let nowDate = year+"-"+nowM+"-"+day;
   try {
-    response = await fetch("https://www.sodexo.fi/ruokalistat/output/daily_json/152/"+nowDate);
+    response = await fetch("https://www.sodexo.fi/ruokalistat/output/daily_json/"+`${num}` +"/"+nowDate);
     let data = await response.json();
     return data;
   } catch (error) {
