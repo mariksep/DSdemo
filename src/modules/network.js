@@ -24,6 +24,8 @@ const getCourses = async () => {
 };
 
 
+
+
 /**
  *  Fetch current weather-data (in Myyrmäki) and convert it to json
  */
@@ -42,9 +44,9 @@ const getWeatherData = async () => {
 
 /**
  *  Fetch current transit-data  and convert it to json
- *  heading towards Myyrmäki
+ *
  */
-const getTransitO = async ()=>{
+const getTransit = async (id)=>{
   let response;
   try {
     response = await fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql',
@@ -52,7 +54,7 @@ const getTransitO = async ()=>{
       method: 'POST',
       headers: {'Content-Type': 'application/graphql'},
       body: `{
-        stop(id: "HSL:4150201") {
+        stop(id: "HSL:${id}") {
           name
           desc
           stoptimesWithoutPatterns {
@@ -77,43 +79,6 @@ const getTransitO = async ()=>{
   }
 };
 
-
-/**
- *  Fetch current transit-data  and convert it to json
- *  heading away Myyrmäki
- */
-const getTransitV = async ()=>{
-  let response;
-  try {
-    response = await fetch('https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql',
-    {
-      method: 'POST',
-      headers: {'Content-Type': 'application/graphql'},
-      body: `{
-        stop(id: "HSL:4150296") {
-          name
-          desc
-          stoptimesWithoutPatterns {
-          realtimeDeparture
-          headsign
-            realtimeArrival
-            trip {
-              route {
-                shortName
-              }
-            }
-
-          }
-        }
-      }
-      `, });
-
-    let data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('error', error.message);
-  }
-};
 
 
 /**
@@ -130,4 +95,4 @@ const getNewsFeedData = async (url) => {
 };
 
 
-export { getCourses, getWeatherData, getTransitO, getTransitV, getNewsFeedData };
+export { getCourses, getWeatherData, getTransit, getNewsFeedData };

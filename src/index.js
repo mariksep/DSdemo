@@ -2,7 +2,7 @@ import menuData from "./modules/menuData";
 import WeatherData from "./modules/weatherData";
 import transitData from "./modules/transitData";
 import NewsFeedData from "./modules/newsFeedData";
-/*
+
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
   for (const view of views) {
@@ -17,17 +17,16 @@ const viewCarousel = (activeViewIndex, duration) => {
 };
 viewCarousel(0, 10);
 
-*/
 
-menuData.getInit();
-menuData.getInitE();
+menuData.getInit('fin');
+menuData.getInit('en');
 
 WeatherData.displayWeatherData();
 //Call every hour
 setInterval(WeatherData.displayWeatherData, 60*60*1000);
 
-transitData.getTransitDataV();
-transitData.getTransitDataO();
+transitData.getTransitData('4150296');
+transitData.getTransitData('4150201');
 setInterval(transitData.getTransitDataV, 60*1000);
 setInterval(transitData.getTransitDataO, 60*1000);
 
