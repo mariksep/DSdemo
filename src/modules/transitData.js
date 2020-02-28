@@ -12,10 +12,10 @@ const getTransitData = async(id) =>{
         /* hakee network js tiedot*/
         let data = await getTransit(id);
           const objl = Object.keys(data.data.stop.stoptimesWithoutPatterns).length;
-           title.innerHTML= data.data.stop.name;
-            let h=document.createElement("h3");
-            h.innerHTML = data.data.stop.desc;
-            menu.appendChild(h);
+           title.innerHTML= data.data.stop.name+ ", "+data.data.stop.desc ;
+
+
+            const dataDiv = document.createElement("div");
 
            for(let i = 0; i<objl; i++){
             let p = document.createElement("p");
@@ -29,10 +29,12 @@ const getTransitData = async(id) =>{
               minuutit= "0"+minuutit;
             }
             let arrivalTime= tunnit+":"+ minuutit;
+            dataDiv.classList.add("dataDiv");
             /* lisää p elementtiin bussin numeron ajan jolloin bussi on pysäkillä ja sunnan johon bussi on menossa*/
             p.innerHTML="<strong>"+ data.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName+"</strong>"
              + " <strong>" +  arrivalTime +"</strong>"+" "+ data.data.stop.stoptimesWithoutPatterns[i].headsign;
-            menu.appendChild(p);
+            dataDiv.appendChild(p);
+            menu.appendChild(dataDiv);
           }
       }catch (e) {
          console.log('error' + e);

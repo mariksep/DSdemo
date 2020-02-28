@@ -9,19 +9,38 @@
 header {
   display: flex;
   justify-content: space-around;
+  margin: 5vh;
+}
+header>img{
+  height: 15vh;
 }
 
 .main_content {
-  margin: 5vh;
+  height: 100vh;
+
 }
-
-
+.transit{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.dataDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 2vh;
+  margin: auto;
+  padding-top: 2vh;
+}
 .card {
-  border-radius: 15px;
-
   /*box-shadow:10px 5px 10px #888888 ;*/
-  width: 100vw;
-  margin: 2vh;
+  width: 40vw;
+  margin: 1vh;
+}
+.B4150296, .B4150201, .B4150264, .B4150266{
+display: flex;
+flex-direction: column;
+
 }
 
 h1 {
@@ -47,11 +66,7 @@ h1 {
   display: flex;
   align-items: center;
 }
-.transit{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .weatherContent > p {
   font-size: 3vw;
 }
@@ -59,11 +74,14 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2vh;
 }
-
-h3 {
+.menufin, .menuen{
+  width: 40vw;
+  margin: auto;
   text-align: center;
 }
+
 
 
 .finnishNewsFeed, .englishNewsFeed {
@@ -76,4 +94,10 @@ h3 {
 }
 .englishNewsFeed > article {
   width: 90vw;
+}
+/*väliaikaisesti tämän kokoinen */
+video{
+  height: 100px;
+  width: 100px;
+
 }
