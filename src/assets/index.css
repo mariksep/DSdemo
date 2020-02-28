@@ -15,13 +15,10 @@ header {
   margin: 5vh;
 }
 
-main {
-background-color: aqua;
 
-}
 .card {
   border-radius: 15px;
-  
+
   /*box-shadow:10px 5px 10px #888888 ;*/
   width: 100vw;
   margin: 2vh;
@@ -55,75 +52,28 @@ h1 {
   justify-content: center;
   align-items: center;
 }
+.weatherContent > p {
+  font-size: 3vw;
+}
 .menus{
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
-
-.weatherContent > p {
-  font-size: 3vw;
-}
-
-.menu{
- text-align: center;
-  font-size: xx-large;
-
-}
-
-.menu>p{
-  padding: 0.5vh;
-}
-
-.menuE{
-  text-align: center;
-
-  font-size: xx-large;
-
-}
-
-.menuE>p{
-  padding: 0.5vh;
-}
-
-
 
 h3 {
   text-align: center;
 }
-.transitV{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: x-large;
 
-}
-.transitV>p{
-  padding: 1vh;
-
-}
-.transitO{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: x-large;
-}
-.transitO>p{
-  padding: 1vh;
-
-}
 
 .finnishNewsFeed, .englishNewsFeed {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .finnishNewsFeed > article {
   width: 90vw;
 }
-
 .englishNewsFeed > article {
   width: 90vw;
 }
