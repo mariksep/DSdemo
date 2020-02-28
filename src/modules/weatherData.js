@@ -1,13 +1,18 @@
 import { getWeatherData } from "./network";
 
 /**
- * Display current weather data in HTML
+ * Display current weather data in HTML in chosen location
  */
-const displayWeatherData = async () => {
+const displayWeatherData = async (zipCode, campusIndex) => {
+
+  // Store all campuses to array to display the correct name
+  const campuses = ['Myyrmäki', 'Myllypuro'];
+
   const weatherMain = document.querySelector(".weatherContent");
   const weatherHeader = document.querySelector(".weatherHeader");
 
-  const data = await getWeatherData();
+  const weatherURL = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},fi&appid=c13ea6073dd0700495786ba6f93af408&units=metric`;
+  const data = await getWeatherData(weatherURL);
 
   // Round temperature-values by one decimal
   const temperature = Math.round(data.main.temp * 10) / 10;
@@ -15,7 +20,7 @@ const displayWeatherData = async () => {
   const iconId = data.weather[0].id;
 
   // Add values and icons to HTML
-  const headerContent = `<h2>Myyrmäki</h2>
+  const headerContent = `<h2>${campuses[campusIndex]}</h2>
                           <i class="wi wi-owm-${iconId} weatherIcon"></i>`;
 
   const displayTemperature = `<p>${temperature}</p>
