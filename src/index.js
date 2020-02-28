@@ -17,8 +17,50 @@ const viewCarousel = (activeViewIndex, duration) => {
 };
 viewCarousel(0, 10);
 */
-menuData.getInit('fin');
-menuData.getInit('en');
+const pMyllypuro = document.querySelector(".myllypuro");
+const pMyyrmäki = document.querySelector(".myyrmäki");
+
+ const myrtsi = () =>{
+
+
+    menuData.getInit('fin', 152);
+    menuData.getInit('en', 152);
+    WeatherData.displayWeatherData();
+    //Call every hour
+    setInterval(WeatherData.displayWeatherData, 60*60*1000);
+    transitData.getTransitData('4150296');
+    transitData.getTransitData('4150201');
+    transitData.getTransitData('4150264');
+    transitData.getTransitData('4150266');
+    //Call every minute
+    //setInterval(transitData.getTransitData, 60*1000);
+    NewsFeedData.displayNewsFeed('finnish');
+    NewsFeedData.displayNewsFeed('english');
+
+};
+pMyyrmäki.addEventListener('click', myrtsi);
+myrtsi();
+
+const myllypuro = ()=>{
+  menuData.getInit('fin', 158);
+  menuData.getInit('en', 158 );
+  transitData.getTransitData('1454602');
+  transitData.getTransitData('1454140');
+  transitData.getTransitData('1454112');
+  transitData.getTransitData('1454111');
+  setInterval(transitData.getTransitData, 60*1000);
+};
+
+ pMyllypuro.addEventListener('click', myllypuro);
+
+
+
+/*
+* Default myyrmäki
+
+
+menuData.getInit('fin', 152);
+menuData.getInit('en', 152);
 
 WeatherData.displayWeatherData();
 //Call every hour
@@ -28,11 +70,10 @@ transitData.getTransitData('4150296');
 transitData.getTransitData('4150201');
 transitData.getTransitData('4150264');
 transitData.getTransitData('4150266');
-
+//Call every minute
 setInterval(transitData.getTransitData, 60*1000);
-
-
 
 NewsFeedData.displayNewsFeed('finnish');
 NewsFeedData.displayNewsFeed('english');
 
+*/

@@ -23,7 +23,7 @@ const displayNewsFeed = async (language) => {
   let descriptionIndex = 1;
 
   const newsFeedSection = document.querySelector(`.${language}NewsFeed`);
-
+    newsFeedSection.innerHTML= "";
   // Create first three news
   for (let dateIndex = 0; dateIndex < 3; dateIndex++) {
     // Put every news to own articles

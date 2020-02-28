@@ -5,11 +5,12 @@ import {getCourses} from './network';
  * Display current lunch data in fin
  */
 let title = document.querySelector(".title");
-const getInit = async (lang) =>{
+const getInit = async (lang, num) =>{
 let menu = document.querySelector(`.menu${lang}`);
+menu.innerHTML= "";
 
     try{
-      const data = await getCourses();
+      const data = await getCourses(num);
       const objl = Object.keys(data.courses).length;
       title.innerHTML= data.meta.ref_title;
 
