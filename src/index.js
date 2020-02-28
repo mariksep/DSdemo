@@ -2,6 +2,8 @@ import menuData from "./modules/menuData";
 import WeatherData from "./modules/weatherData";
 import transitData from "./modules/transitData";
 import NewsFeedData from "./modules/newsFeedData";
+
+let weatherInterval;
 /*
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
@@ -17,33 +19,49 @@ const viewCarousel = (activeViewIndex, duration) => {
 };
 viewCarousel(0, 10);
 */
+
 const pMyllypuro = document.querySelector(".myllypuro");
 const pMyyrmäki = document.querySelector(".myyrmäki");
 
- const myrtsi = () =>{
+const myrtsi = () => {
+  clearInterval(weatherInterval);
 
+  menuData.getInit('fin', 152);
+  menuData.getInit('en', 152);
 
-    menuData.getInit('fin', 152);
-    menuData.getInit('en', 152);
-    WeatherData.displayWeatherData();
-    //Call every hour
-    setInterval(WeatherData.displayWeatherData, 60*60*1000);
-    transitData.getTransitData('4150296');
-    transitData.getTransitData('4150201');
-    transitData.getTransitData('4150264');
-    transitData.getTransitData('4150266');
-    //Call every minute
-    //setInterval(transitData.getTransitData, 60*1000);
-    NewsFeedData.displayNewsFeed('finnish');
-    NewsFeedData.displayNewsFeed('english');
+  WeatherData.displayWeatherData('01600', 0);
+  // Call and update the weather every hour
+  weatherInterval = setInterval(() => {
+    WeatherData.displayWeatherData('01600', 0);
+  }, 60*60*1000);
 
+  transitData.getTransitData('4150296');
+  transitData.getTransitData('4150201');
+  transitData.getTransitData('4150264');
+  transitData.getTransitData('4150266');
+  //Call every minute
+  //setInterval(transitData.getTransitData, 60*1000);
+
+  NewsFeedData.displayNewsFeed('finnish');
+  NewsFeedData.displayNewsFeed('english');
 };
+
 pMyyrmäki.addEventListener('click', myrtsi);
+
 myrtsi();
 
-const myllypuro = ()=>{
+const myllypuro = () => {
+  clearInterval(weatherInterval);
   menuData.getInit('fin', 158);
   menuData.getInit('en', 158 );
+
+
+  WeatherData.displayWeatherData('00920', 1);
+  // Call and update the weather every hour
+  weatherInterval = setInterval(() => {
+    WeatherData.displayWeatherData('00920', 1);
+  }, 60*60*1000);
+
   transitData.getTransitData('1454602');
   transitData.getTransitData('1454140');
   transitData.getTransitData('1454112');
@@ -51,7 +69,7 @@ const myllypuro = ()=>{
   setInterval(transitData.getTransitData, 60*1000);
 };
 
- pMyllypuro.addEventListener('click', myllypuro);
+pMyllypuro.addEventListener('click', myllypuro);
 
 
 
