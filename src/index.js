@@ -5,7 +5,7 @@ import NewsFeedData from "./modules/newsFeedData";
 
 let weatherInterval;
 let tarnsitInterval;
-/*
+
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
   for (const view of views) {
@@ -19,7 +19,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 viewCarousel(0, 10);
-*/
+
 
 const pMyllypuro = document.querySelector(".myllypuro");
 const pMyyrmaki = document.querySelector(".myyrmäki");

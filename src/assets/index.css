@@ -52,7 +52,6 @@ header {
 
 .main_content {
   height: 100vh;
-
 }
 
 .transit{
@@ -129,8 +128,8 @@ header {
 
 /*väliaikaisesti tämän kokoinen */
 video{
-  height: 100px;
-  width: 100px;
+  height: 100%;
+  width: 100%;
 
 }
 .event{
