@@ -4,6 +4,7 @@ import transitData from "./modules/transitData";
 import NewsFeedData from "./modules/newsFeedData";
 
 let weatherInterval;
+let tarnsitInterval;
 /*
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
@@ -25,6 +26,7 @@ const pMyyrmaki = document.querySelector(".myyrmäki");
 
 const myrtsi = () => {
   clearInterval(weatherInterval);
+  clearInterval(tarnsitInterval);
 
   menuData.getInit('fin', 152);
   menuData.getInit('en', 152);
@@ -40,7 +42,13 @@ const myrtsi = () => {
   transitData.getTransitData('4150264');
   transitData.getTransitData('4150266');
   //Call every minute
-  //setInterval(transitData.getTransitData, 60*1000);
+
+  tarnsitInterval = setInterval(() =>{
+  transitData.getTransitData('4150296');
+  transitData.getTransitData('4150201');
+  transitData.getTransitData('4150264');
+  transitData.getTransitData('4150266');
+  }, 60*1000);
 
   NewsFeedData.displayNewsFeed('finnish');
   NewsFeedData.displayNewsFeed('english');
@@ -52,6 +60,8 @@ myrtsi();
 
 const myllypuro = () => {
   clearInterval(weatherInterval);
+  clearInterval(tarnsitInterval);
+
   menuData.getInit('fin', 158);
   menuData.getInit('en', 158 );
 
@@ -66,9 +76,14 @@ const myllypuro = () => {
   transitData.getTransitData('1454140');
   transitData.getTransitData('1454112');
   transitData.getTransitData('1454111');
- // setInterval(transitData.getTransitData, 60*1000);
-};
 
+  tarnsitInterval = setInterval(() =>{
+  transitData.getTransitData('1454602');
+  transitData.getTransitData('1454140');
+  transitData.getTransitData('1454112');
+  transitData.getTransitData('1454111');
+    }, 60*1000);
+};
 pMyllypuro.addEventListener('click', myllypuro);
 
 
