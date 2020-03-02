@@ -10,6 +10,8 @@ const getTransitData = async(id) =>{
       /*Luo divin jonka sisälle luodaan jokainen p elemennti */
       let TransitList = document.createElement("div");
       TransitList.classList.add(`B${id}`);
+      TransitList.classList.add(`bussiData`);
+
       /*luo h1 elementin johän laitetaan pysäkin nimi */
       let title = document.createElement("h1");
       title.classList.add(`T${id}`);
@@ -36,8 +38,8 @@ const getTransitData = async(id) =>{
             }
             let arrivalTime= tunnit+":"+ minuutit;
             /* lisää p elementtiin bussin numeron ajan jolloin bussi on pysäkillä ja sunnan johon bussi on menossa*/
-            p.innerHTML="<strong>"+ data.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName+"</strong>"
-             + " <strong>" +  arrivalTime +"</strong>"+" "+ data.data.stop.stoptimesWithoutPatterns[i].headsign;
+            p.innerHTML="<strong>"+ data.data.stop.stoptimesWithoutPatterns[i].trip.route.shortName+ "&emsp;" +"</strong>"
+             + " <strong>"  +arrivalTime +"</strong>"+ "&emsp;"+ data.data.stop.stoptimesWithoutPatterns[i].headsign;
             /* lisätään p elementit diviin ja divi ja title cardsiin*/
             TransitList.appendChild(p);
             card.appendChild(title);
