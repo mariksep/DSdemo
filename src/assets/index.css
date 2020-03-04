@@ -104,12 +104,20 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2vh;
 }
 
 .menufin, .menuen{
-  width: 40vw;
   margin: auto;
+}
+.courses{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.courses>p{
+  margin: 1vh;
+  width: 35%;
+  display: flex;
 }
 
 .finnishNewsFeed, .englishNewsFeed {
