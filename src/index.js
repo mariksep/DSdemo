@@ -55,7 +55,7 @@ const myrtsi = () => {
 };
 
 pMyyrmaki.addEventListener('click', myrtsi);
-pMyyrmaki.addEventListener('touches', myrtsi);
+pMyyrmaki.addEventListener('ontouchstart', myrtsi);
 
 
 myrtsi();
@@ -87,7 +87,7 @@ const myllypuro = () => {
     }, 60*1000);
 };
 pMyllypuro.addEventListener('click', myllypuro);
-pMyllypuro.addEventListener('touches', myllypuro);
+pMyllypuro.addEventListener('ontouchstart', myllypuro);
 
 
 
