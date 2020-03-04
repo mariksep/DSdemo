@@ -10,6 +10,9 @@
   --turquoise: #00a0e1;
   --mageneta: #e6007d;
   --yellow: #fff000;
+  /*HSL*/
+  --blue: #007AC9;
+  --lightblue:#BEE4F8;
 
 }
 
@@ -54,27 +57,6 @@ header {
   height: 100vh;
 }
 
-.transit{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.title{
-  text-align: center;
-  padding: 4vh;
-}
-.card {
-  /*box-shadow:10px 5px 10px #888888 ;*/
-  width: 40vw;
-  margin: 1vh;
-}
-.card>h1{
-  line-height: 5vh;
-}
-
-
-
 .weatherHeader {
   display: flex;
   justify-content: space-evenly;
@@ -94,16 +76,57 @@ header {
 .weatherContent > p {
   font-size: 3vw;
 }
+
+
+.transit{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.title{
+  text-align: center;
+  padding: 4vh;
+}
+.card {
+  width: 45vw;
+  margin: 1vh;
+  background-color: var(--blue);
+  border-radius: 15px;
+}
+.card>h1{
+  line-height: 5vh;
+  color: white;
+  margin: 1vh;
+  font-family: var(--Body-text-Font);
+
+}
 .bussiData{
   line-height: 5vh;
   font-size: 3vh;
-
+  margin: 2vh;
+  border-radius: 15px;
+  background-color: white;
 }
+.bussiData>p{
+  padding: 0.5vh;
+}
+
+.bussiData>p:nth-child(odd){
+background-color: var(--lightblue);
+}
+.bussiData>p:nth-child(1){
+border-radius: 15px 15px 0 0 ;
+ }
+  .bussiData>p:nth-child(5){
+    border-radius:  0 0  15px 15px;
+  }
+
+
+
 
 .menus{
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .menufin, .menuen{
@@ -117,7 +140,6 @@ header {
 .courses>p{
   margin: 1vh;
   width: 35%;
-  display: flex;
 }
 
 .finnishNewsFeed, .englishNewsFeed {
