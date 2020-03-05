@@ -43,15 +43,22 @@ const buttonMyrtsi = document.querySelector(".buttonMyrtsi");
 const buttonMyllypuro = document.querySelector(".buttonMyllypuro");
 const buttonKaraportti = document.querySelector(".buttonKaraportti");
 
+const buttonMyrtsiEN = document.querySelector(".buttonMyrtsiEN");
+const buttonMyllypuroEN = document.querySelector(".buttonMyllypuroEN");
+const buttonKaraporttiEN = document.querySelector(".buttonKaraporttiEN");
+
 
 
 const myrtsi = () => {
   let lang = "Fi";
   buttonMyrtsi.innerHTML=`${lang}`;
+  
 
   buttonMyrtsi.style.display='flex';
   buttonMyllypuro.style.display='none';
   buttonKaraportti.style.display='none';
+
+
 
 
   clearInterval(weatherInterval);
