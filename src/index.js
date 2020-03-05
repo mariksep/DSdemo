@@ -2,29 +2,40 @@ import menuData from "./modules/menuData";
 import WeatherData from "./modules/weatherData";
 import transitData from "./modules/transitData";
 import NewsFeedData from "./modules/newsFeedData";
+import FazerData from './modules/fazerData';
 
 let weatherInterval;
-let tarnsitInterval;
+let transitInterval;
 
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
+
   for (const view of views) {
     view.style.display = 'none';
   }
+
   views[activeViewIndex].style.display = 'block';
+
   let nextView = activeViewIndex + 1;
+
   if (nextView === views.length) {
     nextView = 0;
   }
+
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
+
 viewCarousel(0, 10);
 
 
 const pMyllypuro = document.querySelector(".myllypuro");
 const pMyyrmaki = document.querySelector(".myyrmäki");
+const pKaraportti = document.querySelector(".karaportti");
+
 const buttonMyrtsi = document.querySelector(".buttonMyrtsi");
 const buttonMyllypuro = document.querySelector(".buttonMyllypuro");
+const buttonKaraportti = document.querySelector(".buttonKaraportti");
+
 
 
 const myrtsi = () => {
@@ -33,16 +44,18 @@ const myrtsi = () => {
 
   buttonMyrtsi.style.display='flex';
   buttonMyllypuro.style.display='none';
+  buttonKaraportti.style.display='none';
+
 
   clearInterval(weatherInterval);
-  clearInterval(tarnsitInterval);
+  clearInterval(transitInterval);
 
+  WeatherData.displayWeatherData('01600');
   menuData.getInit('fin', 152);
 
-  WeatherData.displayWeatherData('01600', 0);
   // Call and update the weather every hour
   weatherInterval = setInterval(() => {
-    WeatherData.displayWeatherData('01600', 0);
+    WeatherData.displayWeatherData('01600');
   }, 60*60*1000);
 
   transitData.getTransitData('4150296');
@@ -51,7 +64,7 @@ const myrtsi = () => {
   transitData.getTransitData('4150266');
   //Call every minute
 
-  tarnsitInterval = setInterval(() =>{
+  transitInterval = setInterval(() =>{
   transitData.getTransitData('4150296');
   transitData.getTransitData('4150201');
   transitData.getTransitData('4150264');
@@ -91,16 +104,18 @@ const myllypuro = () => {
 
  buttonMyllypuro.style.display='flex';
  buttonMyrtsi.style.display='none';
+ buttonKaraportti.style.display='none';
+
 
   clearInterval(weatherInterval);
-  clearInterval(tarnsitInterval);
+  clearInterval(transitInterval);
 
   menuData.getInit('fin', 158);
 
-  WeatherData.displayWeatherData('00920', 1);
+  WeatherData.displayWeatherData('00920');
   // Call and update the weather every hour
   weatherInterval = setInterval(() => {
-    WeatherData.displayWeatherData('00920', 1);
+    WeatherData.displayWeatherData('00920');
   }, 60*60*1000);
 
   transitData.getTransitData('1454602');
@@ -108,7 +123,7 @@ const myllypuro = () => {
   transitData.getTransitData('1454112');
   transitData.getTransitData('1454111');
 
-  tarnsitInterval = setInterval(() =>{
+  transitInterval = setInterval(() =>{
   transitData.getTransitData('1454602');
   transitData.getTransitData('1454140');
   transitData.getTransitData('1454112');
@@ -126,7 +141,7 @@ const myllypuro = () => {
         menuData.getInit('en', 158);
         NewsFeedData.displayNewsFeed('english');
       }
-buttonMyllypuro.innerHTML=`${lang}`;
+    buttonMyllypuro.innerHTML=`${lang}`;
 
     };
     buttonMyllypuro.addEventListener('click', langButton);
@@ -139,3 +154,57 @@ pMyllypuro.addEventListener('ontouchstart', myllypuro);
 
 
 
+
+const karaportti = () => {
+  let lang= 'Fi';
+  buttonKaraportti.innerHTML=`${lang}`;
+
+  buttonKaraportti.style.display='flex';
+  buttonMyrtsi.style.display='none';
+  buttonMyllypuro.style.display='none';
+
+
+   clearInterval(weatherInterval);
+   clearInterval(transitInterval);
+
+   FazerData.displayFazerMenu('fi');
+
+   WeatherData.displayWeatherData('00920');
+   // Call and update the weather every hour
+
+   weatherInterval = setInterval(() => {
+     WeatherData.displayWeatherData('02610');
+   }, 60*60*1000);
+
+   transitData.getTransitData('2132207');
+   transitData.getTransitData('2132208');
+   transitData.getTransitData('2132225');
+   transitData.getTransitData('2132226');
+
+   transitInterval = setInterval(() =>{
+    transitData.getTransitData('2132207');
+    transitData.getTransitData('2132208');
+    transitData.getTransitData('2132225');
+    transitData.getTransitData('2132226');
+     }, 60*1000);
+
+
+     const langButton = ()=>{
+       if(lang=='En'){
+         lang ='Fi';
+         FazerData.displayFazerMenu('en');
+         NewsFeedData.displayNewsFeed('finnish');
+       }else{
+         lang ='En';
+         FazerData.displayFazerMenu('fi');
+         NewsFeedData.displayNewsFeed('english');
+       }
+     buttonKaraportti.innerHTML=`${lang}`;
+
+     };
+     buttonKaraportti.addEventListener('click', langButton);
+
+ };
+
+pKaraportti.addEventListener('click', karaportti);
+pKaraportti.addEventListener('ontouchstart', karaportti);

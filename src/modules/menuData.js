@@ -17,8 +17,8 @@ const getInit = async (lang, num) =>{
       const data = await getCourses(num);
       const objl = Object.keys(data.courses).length;
       /*Tulostaa toimipaikan nimen
-       */
-      title.innerHTML= data.meta.ref_title;
+
+      title.innerHTML= data.meta.ref_title;  */
 
 
       let i = 1;

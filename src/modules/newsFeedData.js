@@ -22,7 +22,7 @@ const displayNewsFeed = async (language) => {
   let titleIndex = 2;
   let descriptionIndex = 1;
 
-  const newsFeedSection = document.querySelector(`.NewsFeed`);
+  const newsFeedSection = document.querySelector(`.newsFeed`);
   newsFeedSection.innerHTML= "";
 
   // Create first three news
