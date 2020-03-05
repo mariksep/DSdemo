@@ -83,12 +83,27 @@ const getTransit = async (id)=>{
 const getNewsFeedData = async (url) => {
   try {
     const data = await fetch(url);
-    const response = await data.text();
-    return response;
+    const xml = await data.text();
+    return xml;
   } catch (error) {
     console.log('Error in getting newsFeed-data', error);
   }
 };
 
 
-export { getCourses, getWeatherData, getTransit, getNewsFeedData };
+/**
+ *  Fetch days Fazer-menu and convert it to json
+ */
+const getFazerMenuData = async (language, day) => {
+  try {
+    const proxy = 'https://cors-anywhere.herokuapp.com/';
+    const data = await fetch(`${proxy}https://www.fazerfoodco.fi/api/restaurant/menu/week?language=${language}&restaurantPageId=270540&weekDate=${day}`);
+    const json = await data.json();
+    return json;
+  } catch (error) {
+    console.log('Error in fetching Fazer menu', error);
+  }
+};
+
+
+export { getCourses, getWeatherData, getTransit, getNewsFeedData, getFazerMenuData };

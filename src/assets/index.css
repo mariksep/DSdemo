@@ -1,16 +1,17 @@
-
 :root {
-  --Header-Font: 'Roboto Slab';
-  --Body-text-Font: 'Open Sans';
+  --Header-Font: "Roboto Slab";
+  --Body-text-Font: "Open Sans";
   /*Metropolian päävärit*/
   --orange: #ff5000;
-  --greay:53565a;
+  --greay: 53565a;
   /*apuvärit*/
-  --lime:  #c2d500;
+  --lime: #c2d500;
   --turquoise: #00a0e1;
   --mageneta: #e6007d;
   --yellow: #fff000;
-
+  /*HSL*/
+  --blue: #007ac9;
+  --lightblue: #bee4f8;
 }
 
 * {
@@ -20,70 +21,39 @@
   padding: 0;
 }
 
-h1,h2,h3{
+h1,
+h2,
+h3 {
   font-family: var(--Header-Font);
 }
 
 nav {
   display: flex;
-  margin: 5vh;
-  justify-content:space-evenly;
+  margin: 2vh;
+  justify-content: space-evenly;
   align-items: center;
 }
 
-nav>p{
+nav > p {
   padding: 1vh;
 }
 
-nav>p:hover{
+nav > p:hover {
   border: solid var(--orange) 1px;
   border-radius: 15px;
-
 }
 
-.logo>img{
+.logo > img {
   height: 5vh;
-}
-
-header {
-  display: flex;
-  justify-content: space-around;
 }
 
 .main_content {
   height: 100vh;
 }
 
-.transit{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.title{
-  text-align: center;
-  padding: 4vh;
-}
-
-.card {
-  /*box-shadow:10px 5px 10px #888888 ;*/
-  width: 40vw;
-  margin: 1vh;
-}
-
-.card>h1{
-  line-height: 5vh;
-}
-
-.weatherHeader {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
 .weatherIcon {
-  font-size: 10rem;
-  color: grey;
+  font-size: 10vh;
+  color: black;
 }
 
 .weatherContent {
@@ -92,28 +62,80 @@ header {
 }
 
 .weatherContent > p {
-  font-size: 3vw;
+  font-size: 2vw;
 }
 
-.bussiData{
-  line-height: 5vh;
-  font-size: 3vh;
-
-}
-
-.menus{
+.transit {
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 2vh;
+  flex-wrap: wrap;
 }
 
-.menufin, .menuen{
-  width: 40vw;
+.title {
+  text-align: center;
+  padding: 4vh;
+}
+
+.card {
+  width: 45vw;
+  margin: 1vh;
+  background-color: var(--blue);
+  border-radius: 15px;
+}
+
+.card > h1 {
+  line-height: 5vh;
+  color: white;
+  margin: 1vh;
+  font-family: var(--Body-text-Font);
+}
+
+.bussiData {
+  line-height: 5vh;
+  font-size: 3vh;
+  margin: 2vh;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.bussiData > p {
+  padding: 0.5vh;
+}
+
+.bussiData > p:nth-child(odd) {
+  background-color: var(--lightblue);
+}
+
+.bussiData > p:nth-child(1) {
+  border-radius: 15px 15px 0 0;
+}
+
+.bussiData > p:nth-child(5) {
+  border-radius: 0 0 15px 15px;
+}
+
+.menus {
+  display: flex;
+}
+
+.menufin,
+.menuen {
   margin: auto;
 }
 
-.finnishNewsFeed, .englishNewsFeed {
+.courses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.courses > p {
+  margin: 1vh;
+  width: 35%;
+}
+
+.finnishNewsFeed,
+.englishNewsFeed {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,34 +150,33 @@ header {
 }
 
 /*väliaikaisesti tämän kokoinen */
-video{
+video {
   height: 100%;
   width: 100%;
-
 }
 
-.event{
+.event {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.insta{
+.insta {
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.info{
+.info {
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.info>p{
-  width:60%;
+.info > p {
+  width: 60%;
   line-height: 2vh;
 }
