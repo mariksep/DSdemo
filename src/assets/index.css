@@ -5,7 +5,7 @@
   /*Metropolian päävärit*/
   --orange: #ff5000;
   --greay:53565a;
-  /*apuvärit*/
+  /*Metropolia apuvärit*/
   --lime:  #c2d500;
   --turquoise: #00a0e1;
   --mageneta: #e6007d;
@@ -13,6 +13,11 @@
   /*HSL*/
   --blue: #007AC9;
   --lightblue:#BEE4F8;
+  /*Sodexo*/
+  --category:#65676a;
+  /*
+  teksti mustalla ja fontti times new roman
+  */
 
 }
 
@@ -28,6 +33,7 @@ h1,h2,h3{
 }
 
 nav {
+
   display: flex;
   margin: 5vh;
   justify-content:space-evenly;
@@ -127,6 +133,8 @@ border-radius: 15px 15px 0 0 ;
 
 .menus{
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menufin, .menuen{

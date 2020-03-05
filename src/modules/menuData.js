@@ -7,8 +7,8 @@ import {getCourses} from './network';
 let title = document.querySelector(".title");
 /*Saa indexistä muutujat lang(kieli) ja num toimipaikan  */
 const getInit = async (lang, num) =>{
-    let menu = document.querySelector(`.menu${lang}`);
-    menu.innerHTML= "";
+    let menu = document.querySelector(`.menu`);
+
 
     try{
       /*Hakee toimipaikka kohtaisen menun num muuttujan avulla
@@ -25,6 +25,8 @@ const getInit = async (lang, num) =>{
       if(num=== 158){
         i = 2;
       }
+      menu.innerHTML= "";
+
     for(i; i<=objl; i++){
           let  courses = document.createElement("div");
           let food = document.createElement("p");

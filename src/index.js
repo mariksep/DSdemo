@@ -5,7 +5,7 @@ import NewsFeedData from "./modules/newsFeedData";
 
 let weatherInterval;
 let tarnsitInterval;
-
+/*
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
   for (const view of views) {
@@ -19,17 +19,25 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 viewCarousel(0, 10);
-
+*/
 
 const pMyllypuro = document.querySelector(".myllypuro");
 const pMyyrmaki = document.querySelector(".myyrmäki");
+const buttonMyrtsi = document.querySelector(".buttonMyrtsi");
+const buttonMyllypuro = document.querySelector(".buttonMyllypuro");
+
 
 const myrtsi = () => {
+  let lang = "Fi";
+  buttonMyrtsi.innerHTML=`${lang}`;
+
+  buttonMyrtsi.style.display='flex';
+  buttonMyllypuro.style.display='none';
+
   clearInterval(weatherInterval);
   clearInterval(tarnsitInterval);
 
   menuData.getInit('fin', 152);
-  menuData.getInit('en', 152);
 
   WeatherData.displayWeatherData('01600', 0);
   // Call and update the weather every hour
@@ -51,22 +59,44 @@ const myrtsi = () => {
   }, 60*1000);
 
   NewsFeedData.displayNewsFeed('finnish');
-  NewsFeedData.displayNewsFeed('english');
+
+
+ const langButton = ()=>{
+   if(lang=='En'){
+     lang ='Fi';
+     menuData.getInit('fin', 152);
+     NewsFeedData.displayNewsFeed('finnish');
+   }else{
+     lang ='En';
+     menuData.getInit('en', 152);
+     NewsFeedData.displayNewsFeed('english');
+   }
+   buttonMyrtsi.innerHTML=`${lang}`;
+
+ };
+
+ buttonMyrtsi.addEventListener('click', langButton);
+
 };
+
 
 pMyyrmaki.addEventListener('click', myrtsi);
 pMyyrmaki.addEventListener('ontouchstart', myrtsi);
 
-
 myrtsi();
 
+
 const myllypuro = () => {
+ let lang= 'Fi';
+ buttonMyllypuro.innerHTML=`${lang}`;
+
+ buttonMyllypuro.style.display='flex';
+ buttonMyrtsi.style.display='none';
+
   clearInterval(weatherInterval);
   clearInterval(tarnsitInterval);
 
   menuData.getInit('fin', 158);
-  menuData.getInit('en', 158 );
-
 
   WeatherData.displayWeatherData('00920', 1);
   // Call and update the weather every hour
@@ -85,9 +115,65 @@ const myllypuro = () => {
   transitData.getTransitData('1454112');
   transitData.getTransitData('1454111');
     }, 60*1000);
+
+
+    const langButton = ()=>{
+      if(lang=='En'){
+        lang ='Fi';
+        menuData.getInit('fin', 158);
+        NewsFeedData.displayNewsFeed('finnish');
+      }else{
+        lang ='En';
+        menuData.getInit('en', 158);
+        NewsFeedData.displayNewsFeed('english');
+      }
+buttonMyllypuro.innerHTML=`${lang}`;
+
+    };
+    buttonMyllypuro.addEventListener('click', langButton);
+
 };
+
+
 pMyllypuro.addEventListener('click', myllypuro);
 pMyllypuro.addEventListener('ontouchstart', myllypuro);
 
 
 
+
+/*
+
+
+let lang = 'Fi';
+
+const langButton = (campus)=>{
+
+  if(campus==152){
+  if(lang=='En'){
+    lang ='Fi';
+    menuData.getInit('fin', 152);
+    NewsFeedData.displayNewsFeed('finnish');
+  }else{
+    lang ='En';
+    menuData.getInit('en', 152);
+    NewsFeedData.displayNewsFeed('english');
+  }
+}
+
+if(campus==158){
+  if(lang=='En'){
+    lang ='Fi';
+    menuData.getInit('fin', 158);
+    NewsFeedData.displayNewsFeed('finnish');
+  }else{
+    lang ='En';
+    menuData.getInit('en', 158);
+    NewsFeedData.displayNewsFeed('english');
+  }
+
+}
+  button.innerHTML=`${lang}`;
+
+};
+
+button.addEventListener('click', langButton);*/
