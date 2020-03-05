@@ -3,15 +3,21 @@
   --Body-text-Font: "Open Sans";
   /*Metropolian päävärit*/
   --orange: #ff5000;
-  --greay: 53565a;
-  /*apuvärit*/
-  --lime: #c2d500;
+  --greay:53565a;
+  /*Metropolia apuvärit*/
+  --lime:  #c2d500;
   --turquoise: #00a0e1;
   --mageneta: #e6007d;
   --yellow: #fff000;
   /*HSL*/
-  --blue: #007ac9;
-  --lightblue: #bee4f8;
+  --blue: #007AC9;
+  --lightblue:#BEE4F8;
+  /*Sodexo*/
+  --category:#65676a;
+  /*
+  teksti mustalla ja fontti times new roman
+  */
+
 }
 
 * {
@@ -47,10 +53,6 @@ nav > p:hover {
   height: 5vh;
 }
 
-.main_content {
-  height: 100vh;
-}
-
 .weatherIcon {
   font-size: 10vh;
   color: black;
@@ -63,6 +65,10 @@ nav > p:hover {
 
 .weatherContent > p {
   font-size: 2vw;
+}
+
+.main_content {
+  height: 100vh;
 }
 
 .transit {
@@ -116,11 +122,8 @@ nav > p:hover {
 
 .menus {
   display: flex;
-}
-
-.menufin,
-.menuen {
-  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .courses {
@@ -134,18 +137,13 @@ nav > p:hover {
   width: 35%;
 }
 
-.finnishNewsFeed,
-.englishNewsFeed {
+.newsFeed {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.finnishNewsFeed > article {
-  width: 90vw;
-}
-
-.englishNewsFeed > article {
+.newsFeed > article {
   width: 90vw;
 }
 
