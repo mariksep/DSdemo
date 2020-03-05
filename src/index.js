@@ -5,7 +5,7 @@ import NewsFeedData from "./modules/newsFeedData";
 
 let weatherInterval;
 let tarnsitInterval;
-/*
+
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
   for (const view of views) {
@@ -19,7 +19,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 viewCarousel(0, 10);
-*/
+
 
 const pMyllypuro = document.querySelector(".myllypuro");
 const pMyyrmaki = document.querySelector(".myyrmäki");
@@ -83,9 +83,8 @@ const myrtsi = () => {
 pMyyrmaki.addEventListener('click', myrtsi);
 pMyyrmaki.addEventListener('ontouchstart', myrtsi);
 
+
 myrtsi();
-
-
 const myllypuro = () => {
  let lang= 'Fi';
  buttonMyllypuro.innerHTML=`${lang}`;
@@ -140,40 +139,3 @@ pMyllypuro.addEventListener('ontouchstart', myllypuro);
 
 
 
-
-/*
-
-
-let lang = 'Fi';
-
-const langButton = (campus)=>{
-
-  if(campus==152){
-  if(lang=='En'){
-    lang ='Fi';
-    menuData.getInit('fin', 152);
-    NewsFeedData.displayNewsFeed('finnish');
-  }else{
-    lang ='En';
-    menuData.getInit('en', 152);
-    NewsFeedData.displayNewsFeed('english');
-  }
-}
-
-if(campus==158){
-  if(lang=='En'){
-    lang ='Fi';
-    menuData.getInit('fin', 158);
-    NewsFeedData.displayNewsFeed('finnish');
-  }else{
-    lang ='En';
-    menuData.getInit('en', 158);
-    NewsFeedData.displayNewsFeed('english');
-  }
-
-}
-  button.innerHTML=`${lang}`;
-
-};
-
-button.addEventListener('click', langButton);*/
