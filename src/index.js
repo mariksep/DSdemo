@@ -9,12 +9,20 @@ let transitInterval;
 
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
+  const nav = document.querySelector('nav');
 
   for (const view of views) {
     view.style.display = 'none';
   }
 
   views[activeViewIndex].style.display = 'block';
+
+  // Hide navbar from the news and video sections
+  if (activeViewIndex === 3 || activeViewIndex === 2) {
+    nav.style.display = 'none';
+  } else {
+    nav.style.display = 'flex';
+  }
 
   let nextView = activeViewIndex + 1;
 
@@ -24,7 +32,6 @@ const viewCarousel = (activeViewIndex, duration) => {
 
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
-
 viewCarousel(0, 10);
 
 
@@ -192,11 +199,13 @@ const karaportti = () => {
      const langButton = ()=>{
        if(lang=='En'){
          lang ='Fi';
-         FazerData.displayFazerMenu('en');
+         FazerData.displayFazerMenu('fi');
+
          NewsFeedData.displayNewsFeed('finnish');
        }else{
          lang ='En';
-         FazerData.displayFazerMenu('fi');
+         FazerData.displayFazerMenu('en');
+
          NewsFeedData.displayNewsFeed('english');
        }
      buttonKaraportti.innerHTML=`${lang}`;

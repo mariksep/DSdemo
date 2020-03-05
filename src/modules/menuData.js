@@ -8,7 +8,7 @@ let title = document.querySelector(".title");
 /*Saa indexistä muutujat lang(kieli) ja num toimipaikan  */
 const getInit = async (lang, num) =>{
     let menu = document.querySelector(`.menu`);
-
+    const img = document.createElement("div");
 
     try{
       /*Hakee toimipaikka kohtaisen menun num muuttujan avulla
@@ -18,14 +18,16 @@ const getInit = async (lang, num) =>{
       const objl = Object.keys(data.courses).length;
       /*Tulostaa toimipaikan nimen
 
-      title.innerHTML= data.meta.ref_title;  */
-
+      title.innerHTML= data.meta.ref_title;
+*/
 
       let i = 1;
       if(num=== 158){
         i = 2;
       }
       menu.innerHTML= "";
+      img.classList.add('img');
+    //  menu.appendChild(img);
 
     for(i; i<=objl; i++){
           let  courses = document.createElement("div");
@@ -36,7 +38,7 @@ const getInit = async (lang, num) =>{
           /*Lang avulla tulostaa oikean kielisen menun*/
         if(lang==='fin'){
            food.innerHTML=  data.courses[i].title_fi;
-           properties.innerHTML =data.courses[i].properties;
+           properties.innerHTML ='<strong>'+data.courses[i].properties +'</strong>';
            price.innerHTML= data.courses[i].price ;
            courses.appendChild(food);
            courses.appendChild(price);

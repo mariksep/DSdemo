@@ -2,8 +2,8 @@
   --Header-Font: "Roboto Slab";
   --Body-text-Font: "Open Sans";
   /*Metropolian päävärit*/
-  --orange: #ff5000;
-  --greay:53565a;
+  --orange : #ff5000;
+  --grye: #53565a;
   /*Metropolia apuvärit*/
   --lime:  #c2d500;
   --turquoise: #00a0e1;
@@ -125,29 +125,85 @@ nav > p:hover {
   justify-content: center;
   align-items: center;
 }
+.menu{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
+}
+.img{
+  width: 10vw;
+  height: 13vh;
+
+  background-image: url("../assets/Sodexo_logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .courses {
+  font-family: 'Times New Roman';
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.5vw;
+  columns: 3;
 }
 
 .courses > p {
   margin: 1vh;
-  width: 35%;
+  width: 100%;
+
+}
+.courses > p:nth-child(2) {
+  text-align: center;
 }
 
+.courses > p:nth-child(3) {
+  text-align: center;
+}
+
+
 .newsFeed {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+}
+
+.newsFeed > div {
+  width: 10vw;
+  height: 13vh;
+  background-image: url("../assets/metka1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .newsFeed > article {
-  width: 90vw;
+  width: 80vw;
 }
 
-/*väliaikaisesti tämän kokoinen */
+.newsFeed > article > h1 {
+  font-size: 2vw;
+  border-bottom: 4px solid var(--orange);
+  margin-bottom: 2vh;
+}
+
+.newsFeed > article > h5 {
+  font-size: 1.2vw;
+  margin-bottom: 2vh;
+}
+
+.newsFeed > article > p {
+  font-size: 1.5vw;
+  line-height: 3vw;
+  margin-bottom: 2vh;
+}
+
 video {
   height: 100%;
   width: 100%;
