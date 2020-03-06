@@ -37,30 +37,29 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
-//viewCarousel(0, 10);
+viewCarousel(0, 10);
 
 
 const time = document.querySelector(".time");
 let divTime = document.createElement("div");
 time.appendChild(divTime);
 
-const timeNow = ()=>{
-  divTime.innerHTML="";
+const timeNow = () => {
+  divTime.innerHTML= "";
   const time = new Date();
   const hours= time.getHours();
   const Minutes= time.getMinutes();
-  const timeNow = hours+":" +Minutes;
-  divTime.innerHTML=timeNow;
+  const timeNow = hours + ":" + Minutes;
+  divTime.innerHTML = timeNow;
 };
-setInterval(timeNow,600);
+
+setInterval(timeNow, 600);
 
 
 const generalInfo = () => {
   EventData.displayEvent(language);
   NewsFeedData.displayNewsFeed(language);
 };
-
-generalInfo();
 
 const changeLanguage = () => {
 
@@ -256,5 +255,5 @@ pArabia.addEventListener("ontouchstart", arabia);
 
 
 myrtsi();
-
+generalInfo();
 
