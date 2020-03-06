@@ -221,13 +221,27 @@ pKaraportti.addEventListener("ontouchstart", karaportti);
 
 const arabia = () => {
   campus.innerHTML = 'Arabia';
-
+  let menu = document.querySelector(".menu");
+   menu.innerHTML="";
+   menu.innerHTML= " Nettisivujen uudistuksessa ilmenneiden ongelmien takia emme valitettavasti saa tällä hetkellä ruokalistaa sivuille näkyviin. Korjaamme asiaa parhaillaan. Ruokalistoja voi noutaa tulosteveriona ravintolasta. Pahoittelemme tilannetta";
   WeatherData.displayWeatherData("00560");
 
   // Call and update the weather every hour
   weatherInterval = setInterval(() => {
     WeatherData.displayWeatherData("00560");
   }, 60 * 60 * 1000);
+
+  transitData.getTransitData("1230101");
+  transitData.getTransitData("1230104");
+  transitData.getTransitData("1230103");
+  transitData.getTransitData("1230102");
+
+  transitInterval = setInterval(() => {
+    transitData.getTransitData("1230101");
+    transitData.getTransitData("1230104");
+    transitData.getTransitData("1230103");
+    transitData.getTransitData("1230102");
+  }, 60 * 1000);
 
 
   NewsFeedData.displayNewsFeed(language);
