@@ -5,8 +5,6 @@ import {getTransit} from './network';
  */
  /* Hakee div elementin johon kaikki lopuksi tulostetaan*/
  let container = document.querySelector(".transit");
- let divTime = document.createElement("div");
-
 
 
 const getTransitData = async(id) =>{
@@ -21,18 +19,8 @@ const getTransitData = async(id) =>{
       title.classList.add(`T${id}`);
       /*tyhjentää containerin */
       container.innerHTML= "";
-      container.appendChild(divTime);
 
-      const timeNow = ()=>{
-        divTime.innerHTML="";
-        divTime.classList.add("time");
-        const time = new Date();
-        const hours= time.getHours();
-        const Minutes= time.getMinutes();
-        const timeNow = hours+":" +Minutes;
-        divTime.innerHTML=timeNow;
-      };
-setInterval(timeNow,600);
+
 
 
       try{

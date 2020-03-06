@@ -36,7 +36,7 @@ const getInit = async (lang, num) =>{
           let price = document.createElement("p");
 
           /*Lang avulla tulostaa oikean kielisen menun*/
-        if(lang==='fin'){
+        if(lang==='fi'){
            food.innerHTML=  data.courses[i].title_fi;
            properties.innerHTML ='<strong>'+data.courses[i].properties +'</strong>';
            price.innerHTML= data.courses[i].price ;
