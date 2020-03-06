@@ -10,7 +10,7 @@ const displayNewsFeed = async (language) => {
   let responseXML;
 
   // Choose the correct language and get the XML-string
-  if (language === 'finnish') {
+  if (language === 'fi') {
     responseXML = await getNewsFeedData(finnishNewsFeedURL);
   } else {
     responseXML = await getNewsFeedData(englishNewsFeedURL);
@@ -22,7 +22,7 @@ const displayNewsFeed = async (language) => {
   let titleIndex = 2;
   let descriptionIndex = 1;
 
-  const newsFeedSection = document.querySelector(`.newsFeed`);
+  const newsFeedSection = document.querySelector('.newsFeed');
   newsFeedSection.innerHTML= "";
 
   const logo = document.createElement('div');
