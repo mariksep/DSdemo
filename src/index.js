@@ -21,7 +21,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   views[activeViewIndex].style.display = "block";
 
   // Hide navbar from the video section
-  if (activeViewIndex === 3) {
+  if (activeViewIndex >= 2) {
     nav.style.display = "none";
     hamburgerMenu.style.display = "none";
   } else {
@@ -40,14 +40,7 @@ const viewCarousel = (activeViewIndex, duration) => {
 //viewCarousel(0, 10);
 
 
-const hamburgerMenu = document.querySelector(".hamburger-menu");
-const menuLogo = document.querySelector(".menuLogo");
-
-const campus = document.querySelector(".campus");
-const languageButton = document.querySelector('.langbutton');
 const time = document.querySelector(".time");
-
-
 let divTime = document.createElement("div");
 time.appendChild(divTime);
 
@@ -61,13 +54,24 @@ const timeNow = ()=>{
 };
 setInterval(timeNow,600);
 
+
+const generalInfo = () => {
+  EventData.displayEvent(language);
+  NewsFeedData.displayNewsFeed(language);
+};
+
+generalInfo();
+
 const changeLanguage = () => {
-  if (languageButton.textContent === 'FI') {
-    language = 'fi';
-    languageButton.textContent = 'EN';
-  } else {
-    language = 'en';
-    languageButton.textContent = 'FI';
+
+  for (const langButton of languageButtons) {
+    if (langButton.textContent === 'FI') {
+      language = 'fi';
+      langButton.textContent = 'EN';
+    } else {
+      language = 'en';
+      langButton.textContent = 'FI';
+    }
   }
 
   const currentCampus = campus.textContent;
@@ -85,10 +89,17 @@ const changeLanguage = () => {
   generalInfo();
 };
 
-languageButton.addEventListener('click', changeLanguage);
-languageButton.addEventListener('ontouchstart', changeLanguage);
+const campus = document.querySelector(".campus");
+const languageButtons = document.querySelectorAll('.langbutton');
+
+for (const langButton of languageButtons) {
+  langButton.addEventListener('click', changeLanguage);
+  langButton.addEventListener('ontouchstart', changeLanguage);
+}
 
 
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const menuLogo = document.querySelector(".menuLogo");
 
 const showingMenu = () => {
   if (hamburgerMenu.style.display === "flex") {
@@ -100,14 +111,6 @@ const showingMenu = () => {
 
 menuLogo.addEventListener("click", showingMenu);
 menuLogo.addEventListener("ontouchstart", showingMenu);
-
-
-
-const generalInfo = () => {
-  EventData.displayEvent(language);
-  NewsFeedData.displayNewsFeed(language);
-};
-
 
 
 const pMyllypuro = document.querySelector(".myllypuro");
@@ -252,7 +255,6 @@ pArabia.addEventListener("click", arabia);
 pArabia.addEventListener("ontouchstart", arabia);
 
 
-
-
 myrtsi();
-generalInfo();
+
+

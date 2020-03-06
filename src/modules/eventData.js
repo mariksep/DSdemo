@@ -28,7 +28,11 @@ const displayEvent = (language) => {
                             Apply for the program by 6.4.2020 on 10:00am.`;
   }
 
+  const logo = document.createElement('div');
+  logo.classList.add('eventlogo');
+
   eventsNameDiv.appendChild(header);
+  eventInfo.appendChild(logo);
   eventInfo.appendChild(infoText);
 
 };
