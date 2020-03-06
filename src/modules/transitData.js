@@ -3,10 +3,12 @@ import {getTransit} from './network';
 /**
  *  hakee tiedot hsl apista pysäkki id:llä
  */
+ /* Hakee div elementin johon kaikki lopuksi tulostetaan*/
+ let container = document.querySelector(".transit");
+
 
 const getTransitData = async(id) =>{
-  /* Hakee div elementin johon kaikki lopuksi tulostetaan*/
-  let container = document.querySelector(".transit");
+
       /*Luo divin jonka sisälle luodaan jokainen p elemennti */
       let TransitList = document.createElement("div");
       TransitList.classList.add(`B${id}`);
@@ -17,6 +19,10 @@ const getTransitData = async(id) =>{
       title.classList.add(`T${id}`);
       /*tyhjentää containerin */
       container.innerHTML= "";
+
+
+
+
       try{
         /* hakee network js tiedot*/
           let data = await getTransit(id);
@@ -54,7 +60,6 @@ const getTransitData = async(id) =>{
 
 
     };
-
 
 const dataTransit = {getTransitData};
 

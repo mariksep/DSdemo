@@ -40,8 +40,26 @@ const viewCarousel = (activeViewIndex, duration) => {
 //viewCarousel(0, 10);
 
 
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const menuLogo = document.querySelector(".menuLogo");
+
 const campus = document.querySelector(".campus");
 const languageButton = document.querySelector('.langbutton');
+const time = document.querySelector(".time");
+
+
+let divTime = document.createElement("div");
+time.appendChild(divTime);
+
+const timeNow = ()=>{
+  divTime.innerHTML="";
+  const time = new Date();
+  const hours= time.getHours();
+  const Minutes= time.getMinutes();
+  const timeNow = hours+":" +Minutes;
+  divTime.innerHTML=timeNow;
+};
+setInterval(timeNow,600);
 
 const changeLanguage = () => {
   if (languageButton.textContent === 'FI') {
@@ -71,8 +89,6 @@ languageButton.addEventListener('click', changeLanguage);
 languageButton.addEventListener('ontouchstart', changeLanguage);
 
 
-const hamburgerMenu = document.querySelector(".hamburger-menu");
-const menuLogo = document.querySelector(".menuLogo");
 
 const showingMenu = () => {
   if (hamburgerMenu.style.display === "flex") {
@@ -207,13 +223,27 @@ pKaraportti.addEventListener("ontouchstart", karaportti);
 
 const arabia = () => {
   campus.innerHTML = 'Arabia';
-
+  let menu = document.querySelector(".menu");
+   menu.innerHTML="";
+   menu.innerHTML= " Nettisivujen uudistuksessa ilmenneiden ongelmien takia emme valitettavasti saa tällä hetkellä ruokalistaa sivuille näkyviin. Korjaamme asiaa parhaillaan. Ruokalistoja voi noutaa tulosteveriona ravintolasta. Pahoittelemme tilannetta";
   WeatherData.displayWeatherData("00560");
 
   // Call and update the weather every hour
   weatherInterval = setInterval(() => {
     WeatherData.displayWeatherData("00560");
   }, 60 * 60 * 1000);
+
+  transitData.getTransitData("1230101");
+  transitData.getTransitData("1230104");
+  transitData.getTransitData("1230103");
+  transitData.getTransitData("1230102");
+
+  transitInterval = setInterval(() => {
+    transitData.getTransitData("1230101");
+    transitData.getTransitData("1230104");
+    transitData.getTransitData("1230103");
+    transitData.getTransitData("1230102");
+  }, 60 * 1000);
 
 
 };
