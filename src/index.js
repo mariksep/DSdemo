@@ -32,7 +32,7 @@ const viewCarousel = (activeViewIndex, duration) => {
 
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
-viewCarousel(0, 10);
+//viewCarousel(0, 10);
 
 
 const pMyllypuro = document.querySelector(".myllypuro");
@@ -52,7 +52,7 @@ const buttonKaraporttiEN = document.querySelector(".buttonKaraporttiEN");
 const myrtsi = () => {
   let lang = "Fi";
   buttonMyrtsi.innerHTML=`${lang}`;
-  
+
 
   buttonMyrtsi.style.display='flex';
   buttonMyllypuro.style.display='none';
