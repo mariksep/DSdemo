@@ -43,6 +43,8 @@ const viewCarousel = (activeViewIndex, duration) => {
 
 
 
+
+
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const menuLogo = document.querySelector(".menuLogo");
 
