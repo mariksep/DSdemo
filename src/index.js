@@ -3,6 +3,7 @@ import WeatherData from "./modules/weatherData";
 import transitData from "./modules/transitData";
 import NewsFeedData from "./modules/newsFeedData";
 import FazerData from "./modules/fazerData";
+import EventData from "./modules/eventData";
 
 let weatherInterval;
 let transitInterval;
@@ -54,14 +55,16 @@ const changeLanguage = () => {
   const currentCampus = campus.textContent;
 
   if (currentCampus === 'Myyrmäki') {
-    myrtsi(language);
+    myrtsi();
   } else if (currentCampus === 'Myllypuro') {
-    myllypuro(language);
+    myllypuro();
   } else if (currentCampus === 'Karaportti') {
-    karaportti(language);
+    karaportti();
   } else {
-    arabia(language);
+    arabia();
   }
+
+  generalInfo();
 };
 
 languageButton.addEventListener('click', changeLanguage);
@@ -81,6 +84,13 @@ const showingMenu = () => {
 
 menuLogo.addEventListener("click", showingMenu);
 menuLogo.addEventListener("ontouchstart", showingMenu);
+
+
+
+const generalInfo = () => {
+  EventData.displayEvent(language);
+  NewsFeedData.displayNewsFeed(language);
+};
 
 
 
@@ -117,15 +127,11 @@ const myrtsi = () => {
     transitData.getTransitData("4150266");
   }, 60 * 1000);
 
-  NewsFeedData.displayNewsFeed(language);
 };
 
 pMyyrmaki.addEventListener("click", myrtsi);
 pMyyrmaki.addEventListener("ontouchstart", myrtsi);
 
-
-
-myrtsi(language);
 
 
 const myllypuro = () => {
@@ -154,8 +160,6 @@ const myllypuro = () => {
     transitData.getTransitData("1454112");
     transitData.getTransitData("1454111");
   }, 60 * 1000);
-
-  NewsFeedData.displayNewsFeed(language);
 
 };
 
@@ -193,8 +197,6 @@ const karaportti = () => {
     transitData.getTransitData("2132226");
   }, 60 * 1000);
 
-  NewsFeedData.displayNewsFeed(language);
-
 };
 
 pKaraportti.addEventListener("click", karaportti);
@@ -204,7 +206,6 @@ pKaraportti.addEventListener("ontouchstart", karaportti);
 
 
 const arabia = () => {
-  console.log('yöt arabiaaaaan', language);
   campus.innerHTML = 'Arabia';
 
   WeatherData.displayWeatherData("00560");
@@ -215,8 +216,13 @@ const arabia = () => {
   }, 60 * 60 * 1000);
 
 
-  NewsFeedData.displayNewsFeed(language);
 };
 
 pArabia.addEventListener("click", arabia);
 pArabia.addEventListener("ontouchstart", arabia);
+
+
+
+
+myrtsi();
+generalInfo();
