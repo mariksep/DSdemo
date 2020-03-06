@@ -6,10 +6,12 @@ import FazerData from './modules/fazerData';
 
 let weatherInterval;
 let transitInterval;
+let campus = document.querySelector(".campus");
 
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName('main_content');
   const nav = document.querySelector('nav');
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
 
   for (const view of views) {
     view.style.display = 'none';
@@ -20,6 +22,8 @@ const viewCarousel = (activeViewIndex, duration) => {
   // Hide navbar from the news and video sections
   if (activeViewIndex === 3 || activeViewIndex === 2) {
     nav.style.display = 'none';
+    hamburgerMenu.style.display = 'none';
+
   } else {
     nav.style.display = 'flex';
   }
@@ -32,27 +36,42 @@ const viewCarousel = (activeViewIndex, duration) => {
 
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
-//viewCarousel(0, 10);
+viewCarousel(0, 10);
 
+
+
+
+
+
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const menuLogo = document.querySelector(".menuLogo");
 
 const pMyllypuro = document.querySelector(".myllypuro");
 const pMyyrmaki = document.querySelector(".myyrmäki");
 const pKaraportti = document.querySelector(".karaportti");
 
+
 const buttonMyrtsi = document.querySelector(".buttonMyrtsi");
 const buttonMyllypuro = document.querySelector(".buttonMyllypuro");
 const buttonKaraportti = document.querySelector(".buttonKaraportti");
 
-const buttonMyrtsiEN = document.querySelector(".buttonMyrtsiEN");
-const buttonMyllypuroEN = document.querySelector(".buttonMyllypuroEN");
-const buttonKaraporttiEN = document.querySelector(".buttonKaraporttiEN");
+
+
+const showingMenu= ()=>{
+  if (hamburgerMenu.style.display === "flex") {
+    hamburgerMenu.style.display = "none";
+  } else {
+    hamburgerMenu.style.display = "flex";
+  }
+};
+menuLogo.addEventListener('click', showingMenu);
 
 
 
 const myrtsi = () => {
   let lang = "Fi";
   buttonMyrtsi.innerHTML=`${lang}`;
-
+  campus.innerHTML="Myyrmäki";
 
   buttonMyrtsi.style.display='flex';
   buttonMyllypuro.style.display='none';
@@ -115,6 +134,8 @@ myrtsi();
 const myllypuro = () => {
  let lang= 'Fi';
  buttonMyllypuro.innerHTML=`${lang}`;
+ campus.innerHTML="Myllypuro";
+
 
  buttonMyllypuro.style.display='flex';
  buttonMyrtsi.style.display='none';
@@ -172,6 +193,8 @@ pMyllypuro.addEventListener('ontouchstart', myllypuro);
 const karaportti = () => {
   let lang= 'Fi';
   buttonKaraportti.innerHTML=`${lang}`;
+  campus.innerHTML="Karaportti";
+
 
   buttonKaraportti.style.display='flex';
   buttonMyrtsi.style.display='none';
