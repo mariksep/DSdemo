@@ -155,7 +155,7 @@ const myrtsi = () => {
     transitData.getTransitData("4150266");
   }, 60 * 1000);
 
-  video.src = './assets/videot/myyrmaki_video.mp4';
+  video.src = './assets/videot/myyrmaki_video2.mp4';
   video.play();
 
 };
