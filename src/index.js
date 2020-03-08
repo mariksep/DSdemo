@@ -203,6 +203,8 @@ const karaportti = () => {
 
   FazerData.displayFazerMenu(language);
 
+
+
   WeatherData.displayWeatherData("02610");
 
   // Call and update the weather every hour
