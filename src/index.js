@@ -39,7 +39,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
-//viewCarousel(0, 10);
+viewCarousel(0, 10);
 
 
 const time = document.querySelector(".time");
@@ -63,6 +63,9 @@ const timeNow = () => {
 };
 
 setInterval(timeNow, 600);
+console.log( timeNow());
+
+
 
 
 const generalInfo = () => {
@@ -155,7 +158,7 @@ const myrtsi = () => {
     transitData.getTransitData("4150266");
   }, 60 * 1000);
 
-  //video.src = './assets/videot/myyrmaki_video.mp4';
+  video.src = './assets/videot/myyrmaki_video2.mp4';
   video.play();
 
 };
