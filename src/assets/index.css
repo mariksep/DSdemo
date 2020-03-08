@@ -35,14 +35,16 @@ h3 {
 
 nav {
   display: flex;
-  margin: 2vh;
+  margin: 3vh;
   justify-content: space-evenly;
   align-items: center;
 }
+
 .menuLogo{
   cursor: pointer;
   font-size: 2vw;
 }
+
 .campus{
   font-size: 2vw;
 }
@@ -55,7 +57,6 @@ nav {
   display: none;
   width: 100%;
   justify-content: center;
-
 }
 
 .hamburger-menu-content{
@@ -88,9 +89,8 @@ nav {
 }
 
 .weatherContent > p {
-  font-size: 2vw;
+  font-size: 1.6vw;
 }
-
 
 .langbutton {
   border: solid var(--orange) 1px;
@@ -167,7 +167,7 @@ nav {
   align-items: center;
 }
 
-.menu{
+.menu {
   width: 80%;
   display: flex;
   justify-content: center;
@@ -202,11 +202,11 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
 }
 
 .newsFeed > nav {
   width: 100vw;
+  margin: 1vh;
 }
 
 .metkalogo {
@@ -244,18 +244,23 @@ video {
   width: 100%;
 }
 
+.eventSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 .event {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
-.eventsName{
+.eventsName {
   display: flex;
   justify-content: center;
-  align-items: center;
   font-size: 2vh;
+  margin-bottom: 5vh;
 }
 
 .insta {
@@ -266,7 +271,7 @@ video {
 }
 
 .eventNav {
-  padding-right: 10vw;
+  padding-right: 5vw;
   justify-content: flex-end;
 }
 
@@ -284,6 +289,7 @@ video {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 5vw;
 }
 
 .info > p {
