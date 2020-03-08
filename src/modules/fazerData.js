@@ -63,10 +63,19 @@ const displayFazerMenu = async language => {
 
     // Add price-info
     const priceInfo = document.createElement('p');
-    priceInfo.textContent = `Lounaan hinta opiskelijoille 1,80/2,60/4,95,
-                              Metropolian henkilökunnalle 4,50/5,90/6,90
+
+    if (language === 'fi') {
+      priceInfo.textContent = `Lounaan hinta opiskelijoille 1,80/2,60/4,95€,
+                              Metropolian henkilökunnalle 4,50/5,90/6,90€
                               sekä muille lounastajille 5,50/6,90/8,90€.
-                              Jälkiruokakahvi 1,00€ ja päivän jälkiruoka 1,20€`;
+                              Jälkiruokakahvi 1,00€ ja päivän jälkiruoka 1,20€.`;
+    } else {
+      priceInfo.textContent = `Lunch prices for the students 1,80/2,60/4,95€,
+                              for Metropolia staff 4,50/5,90/6,90€
+                              and for others 5,50/6,90/8,90€.
+                              Coffee after meal 1,00€ and days dessert 1,20€. `
+    }
+
 
     displayMenu.appendChild(priceInfo);
 

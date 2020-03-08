@@ -22,11 +22,8 @@ const displayNewsFeed = async (language) => {
   let titleIndex = 2;
   let descriptionIndex = 1;
 
-  const newsFeedSection = document.querySelector('.newsFeed');
+  const newsFeedSection = document.querySelector('.news');
   newsFeedSection.innerHTML= "";
-
-  const logo = document.createElement('div');
-  newsFeedSection.append(logo);
 
   // Create first three news
   for (let dateIndex = 0; dateIndex < 3; dateIndex++) {

@@ -3,6 +3,7 @@ import WeatherData from "./modules/weatherData";
 import transitData from "./modules/transitData";
 import NewsFeedData from "./modules/newsFeedData";
 import FazerData from "./modules/fazerData";
+import EventData from "./modules/eventData";
 
 let weatherInterval;
 let transitInterval;
@@ -20,7 +21,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   views[activeViewIndex].style.display = "block";
 
   // Hide navbar from the video section
-  if (activeViewIndex === 3) {
+  if (activeViewIndex >= 2) {
     nav.style.display = "none";
     hamburgerMenu.style.display = "none";
   } else {
@@ -36,56 +37,68 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
-//viewCarousel(0, 10);
+viewCarousel(0, 10);
 
 
-const hamburgerMenu = document.querySelector(".hamburger-menu");
-const menuLogo = document.querySelector(".menuLogo");
-
-const campus = document.querySelector(".campus");
-const languageButton = document.querySelector('.langbutton');
 const time = document.querySelector(".time");
-
-
 let divTime = document.createElement("div");
 time.appendChild(divTime);
 
-const timeNow = ()=>{
-  divTime.innerHTML="";
+const timeNow = () => {
+  divTime.innerHTML= "";
   const time = new Date();
   const hours= time.getHours();
   const Minutes= time.getMinutes();
-  const timeNow = hours+":" +Minutes;
-  divTime.innerHTML=timeNow;
+  const timeNow = hours + ":" + Minutes;
+  divTime.innerHTML = timeNow;
 };
-setInterval(timeNow,600);
+
+setInterval(timeNow, 600);
+
+
+const generalInfo = () => {
+  EventData.displayEvent(language);
+  NewsFeedData.displayNewsFeed(language);
+};
 
 const changeLanguage = () => {
-  if (languageButton.textContent === 'FI') {
-    language = 'fi';
-    languageButton.textContent = 'EN';
-  } else {
-    language = 'en';
-    languageButton.textContent = 'FI';
+
+  for (const langButton of languageButtons) {
+    if (langButton.textContent === 'FI') {
+      language = 'fi';
+      langButton.textContent = 'EN';
+    } else {
+      language = 'en';
+      langButton.textContent = 'FI';
+    }
   }
 
   const currentCampus = campus.textContent;
 
   if (currentCampus === 'Myyrmäki') {
-    myrtsi(language);
+    myrtsi();
   } else if (currentCampus === 'Myllypuro') {
-    myllypuro(language);
+    myllypuro();
   } else if (currentCampus === 'Karaportti') {
-    karaportti(language);
+    karaportti();
   } else {
-    arabia(language);
+    arabia();
   }
+
+  generalInfo();
 };
 
-languageButton.addEventListener('click', changeLanguage);
-languageButton.addEventListener('ontouchstart', changeLanguage);
+const campus = document.querySelector(".campus");
+const languageButtons = document.querySelectorAll('.langbutton');
+
+for (const langButton of languageButtons) {
+  langButton.addEventListener('click', changeLanguage);
+  langButton.addEventListener('ontouchstart', changeLanguage);
+}
 
 
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const menuLogo = document.querySelector(".menuLogo");
 
 const showingMenu = () => {
   if (hamburgerMenu.style.display === "flex") {
@@ -97,7 +110,6 @@ const showingMenu = () => {
 
 menuLogo.addEventListener("click", showingMenu);
 menuLogo.addEventListener("ontouchstart", showingMenu);
-
 
 
 const pMyllypuro = document.querySelector(".myllypuro");
@@ -133,15 +145,11 @@ const myrtsi = () => {
     transitData.getTransitData("4150266");
   }, 60 * 1000);
 
-  NewsFeedData.displayNewsFeed(language);
 };
 
 pMyyrmaki.addEventListener("click", myrtsi);
 pMyyrmaki.addEventListener("ontouchstart", myrtsi);
 
-
-
-myrtsi(language);
 
 
 const myllypuro = () => {
@@ -170,8 +178,6 @@ const myllypuro = () => {
     transitData.getTransitData("1454112");
     transitData.getTransitData("1454111");
   }, 60 * 1000);
-
-  NewsFeedData.displayNewsFeed(language);
 
 };
 
@@ -209,8 +215,6 @@ const karaportti = () => {
     transitData.getTransitData("2132226");
   }, 60 * 1000);
 
-  NewsFeedData.displayNewsFeed(language);
-
 };
 
 pKaraportti.addEventListener("click", karaportti);
@@ -244,8 +248,12 @@ const arabia = () => {
   }, 60 * 1000);
 
 
-  NewsFeedData.displayNewsFeed(language);
 };
 
 pArabia.addEventListener("click", arabia);
 pArabia.addEventListener("ontouchstart", arabia);
+
+
+myrtsi();
+generalInfo();
+
