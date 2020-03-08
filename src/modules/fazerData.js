@@ -73,7 +73,7 @@ const displayFazerMenu = async language => {
       priceInfo.textContent = `Lunch prices for the students 1,80/2,60/4,95€,
                               for Metropolia staff 4,50/5,90/6,90€
                               and for others 5,50/6,90/8,90€.
-                              Coffee after meal 1,00€ and days dessert 1,20€. `
+                              Coffee after meal 1,00€ and days dessert 1,20€. `;
     }
 
 
