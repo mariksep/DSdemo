@@ -192,7 +192,7 @@ const myllypuro = () => {
     transitData.getTransitData("1454111");
   }, 60 * 1000);
 
-  video.src = './assets/videot/myllypuro_video.mp4';
+  video.src = './assets/videot/myllypuro2_video.mp4';
   video.play();
 
 };
@@ -233,7 +233,7 @@ const karaportti = () => {
     transitData.getTransitData("2132226");
   }, 60 * 1000);
 
-  video.src = './assets/videot/karamalmi_video.mp4';
+  video.src = './assets/videot/karamalmi_video2.mp4';
   video.play();
 
 };
@@ -268,7 +268,7 @@ const arabia = () => {
     transitData.getTransitData("1230102");
   }, 60 * 1000);
 
-  video.src = './assets/videot/arabia_video.mp4';
+  video.src = './assets/videot/arabia_video2.mp4';
   video.play();
 
 };
