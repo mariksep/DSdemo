@@ -39,7 +39,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
-viewCarousel(0, 10);
+//viewCarousel(0, 10);
 
 
 const time = document.querySelector(".time");
@@ -155,8 +155,8 @@ const myrtsi = () => {
     transitData.getTransitData("4150266");
   }, 60 * 1000);
 
-  video.src = './assets/videot/myyrmaki_video2.mp4';
-  video.play();
+  //video.src = './assets/videot/myyrmaki_video2.mp4';
+  //video.play();
 
 };
 
@@ -192,8 +192,8 @@ const myllypuro = () => {
     transitData.getTransitData("1454111");
   }, 60 * 1000);
 
-  video.src = './assets/videot/myllypuro_video.mp4';
-  video.play();
+  //video.src = './assets/videot/myllypuro_video.mp4';
+  //video.play();
 
 };
 
