@@ -46,9 +46,16 @@ time.appendChild(divTime);
 
 const timeNow = () => {
   divTime.innerHTML= "";
-  const time = new Date();
-  const hours= time.getHours();
-  const Minutes= time.getMinutes();
+  let time = new Date();
+  let hours= time.getHours();
+  let Minutes= time.getMinutes();
+
+  if (hours<10){
+    hours= "0"+hours;}
+  if (Minutes<10){
+    Minutes= "0"+Minutes;
+  }
+
   const timeNow = hours + ":" + Minutes;
   divTime.innerHTML = timeNow;
 };
