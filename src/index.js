@@ -39,7 +39,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
-//viewCarousel(0, 10);
+viewCarousel(0, 10);
 
 
 const time = document.querySelector(".time");
