@@ -239,7 +239,7 @@ nav {
 
 .news > article > p {
   font-size: 1.5vw;
-  line-height: 4vh;
+ /* line-height: 4vh;*/
   margin-bottom: 2vh;
 }
 
@@ -250,6 +250,7 @@ nav {
   align-items: center;
   height: 100vh;
   width: 100vw;
+  background-color: #000000;
 
 }
 video {
@@ -281,6 +282,8 @@ video {
   justify-content: center;
   font-size: 4vh;
   margin-bottom: 5vh;
+ margin-left: 5vh;
+  
 }
 
 .insta {
