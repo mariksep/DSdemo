@@ -37,7 +37,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
-viewCarousel(0, 10);
+//viewCarousel(0, 10);
 
 /**
  * Tulostaa ja hakee kellon naviin
@@ -319,7 +319,7 @@ const arabia = () => {
   campus.innerHTML = 'Arabia';
   let menu = document.querySelector(".menu");
    menu.innerHTML="";
-   menu.innerHTML= " Nettisivujen uudistuksessa ilmenneiden ongelmien takia emme valitettavasti saa tällä hetkellä ruokalistaa sivuille näkyviin. Korjaamme asiaa parhaillaan. Ruokalistoja voi noutaa tulosteveriona ravintolasta. Pahoittelemme tilannetta";
+   menu.innerHTML= "<span class='arabiamenu'> Nettisivujen uudistuksessa ilmenneiden ongelmien takia emme valitettavasti saa tällä hetkellä ruokalistaa sivuille näkyviin. Korjaamme asiaa parhaillaan. Ruokalistoja voi noutaa tulosteveriona ravintolasta. Pahoittelemme tilannetta.</span>";
   WeatherData.displayWeatherData("00560");
 
   // Call and update the weather every hour
@@ -373,4 +373,5 @@ pArabia.addEventListener("ontouchstart", arabia);
 
 myrtsi();
 generalInfo();
+
 
