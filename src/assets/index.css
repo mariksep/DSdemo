@@ -14,9 +14,7 @@
   --lightblue:#BEE4F8;
   /*Sodexo*/
   --category:#65676a;
-  /*
-  teksti mustalla ja fontti times new roman
-  */
+  --sodexoBlue: #2A295C;
 
 }
 
@@ -102,6 +100,8 @@ nav {
 
 .main_content {
   height: 100vh;
+
+
 }
 
 .time{
@@ -239,11 +239,27 @@ nav {
   margin-bottom: 2vh;
 }
 
+.videoSection{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+
+}
 video {
   height: 100%;
   width: 100%;
 }
+.coffeeVideo{
+  z-index: 1;
+  position: absolute;
+  color: white;
+  border-radius: 15px;
+  font-size: 3vw;
 
+}
 .eventSection {
   display: flex;
   flex-direction: column;
@@ -259,7 +275,7 @@ video {
 .eventsName {
   display: flex;
   justify-content: center;
-  font-size: 2vh;
+  font-size: 4vh;
   margin-bottom: 5vh;
 }
 

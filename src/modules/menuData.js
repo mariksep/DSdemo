@@ -60,7 +60,10 @@ const getInit = async (lang, num) =>{
         courses.classList.add("courses");
         }
     }catch (e) {
-       console.log('error' + e);
+       console.log('Error in displaying Sodexo menu');
+       const errorPicture = document.createElement('div');
+       menu.classList.add('menuError');
+       menu.appendChild(errorPicture);
      }
   };
 const menuData = {getInit};

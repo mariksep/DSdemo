@@ -11,17 +11,18 @@ let language = 'fi';
 
 const video = document.querySelector('video');
 
+
+/**
+ * Sivujen vaihto "karuselli"
+ */
 const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName("main_content");
   const nav = document.querySelector("nav");
   const hamburgerMenu = document.querySelector(".hamburger-menu");
-
   for (const view of views) {
     view.style.display = "none";
   }
-
   views[activeViewIndex].style.display = "block";
-
   // Hide navbar from the video section
   if (activeViewIndex >= 2) {
     nav.style.display = "none";
@@ -29,52 +30,50 @@ const viewCarousel = (activeViewIndex, duration) => {
   } else {
     nav.style.display = "flex";
   }
-
   let nextView = activeViewIndex + 1;
-
   if (nextView === views.length) {
     nextView = 0;
   }
-
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
 //viewCarousel(0, 10);
 
-
+/**
+ * Tulostaa ja hakee kellon naviin
+ */
 const time = document.querySelector(".time");
 let divTime = document.createElement("div");
 time.appendChild(divTime);
-
 const timeNow = () => {
   divTime.innerHTML= "";
   let time = new Date();
   let hours= time.getHours();
   let Minutes= time.getMinutes();
-
   if (hours<10){
     hours= "0"+hours;}
   if (Minutes<10){
     Minutes= "0"+Minutes;
   }
-
-  const timeNow = hours + ":" + Minutes;
-  divTime.innerHTML = timeNow;
+  let clock = hours + ":" + Minutes;
+  divTime.innerHTML = clock;
 };
-
 setInterval(timeNow, 600);
-console.log( timeNow());
 
 
 
-
+/**
+ * Näyttää uutis ja tapahtuma sivun language arvon kielellä
+ */
 const generalInfo = () => {
   EventData.displayEvent(language);
   NewsFeedData.displayNewsFeed(language);
 };
 
+/**
+ * Vaihtaa kielen kampuksen mukaan
+ */
 const changeLanguage = () => {
-
   for (const langButton of languageButtons) {
     if (langButton.textContent === 'FI') {
       language = 'fi';
@@ -84,9 +83,7 @@ const changeLanguage = () => {
       langButton.textContent = 'FI';
     }
   }
-
   const currentCampus = campus.textContent;
-
   if (currentCampus === 'Myyrmäki') {
     myrtsi();
   } else if (currentCampus === 'Myllypuro') {
@@ -96,7 +93,6 @@ const changeLanguage = () => {
   } else {
     arabia();
   }
-
   generalInfo();
 };
 
@@ -108,7 +104,9 @@ for (const langButton of languageButtons) {
   langButton.addEventListener('ontouchstart', changeLanguage);
 }
 
-
+/**
+ * Piilottaa ja näyttää menun jossa on listattu kaikki kampukset
+ */
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const menuLogo = document.querySelector(".menuLogo");
 
@@ -129,6 +127,9 @@ const pMyyrmaki = document.querySelector(".myyrmäki");
 const pKaraportti = document.querySelector(".karaportti");
 const pArabia = document.querySelector('.arabia');
 
+/**
+ * Myyrmäen tietojen haku funktio
+ */
 const myrtsi = () => {
   campus.innerHTML = "Myyrmäki";
 
@@ -149,7 +150,6 @@ const myrtsi = () => {
   transitData.getTransitData("4150264");
   transitData.getTransitData("4150266");
   //Call every minute
-
   transitInterval = setInterval(() => {
     transitData.getTransitData("4150296");
     transitData.getTransitData("4150201");
@@ -157,15 +157,40 @@ const myrtsi = () => {
     transitData.getTransitData("4150266");
   }, 60 * 1000);
 
-  video.src = './assets/videot/myyrmaki_video3.mp4';
-  video.play();
+  /*
+  Näyttää klo 07.00-14:00 kahvi videon muuten kampuksen oman videon
+*/
+  let timeVideo = new Date();
+  let hoursVideo = timeVideo.getHours();
+  let MinutesVideo = timeVideo.getMinutes();
+  let text = document.querySelector('.coffeeVideo');
+  if (hoursVideo<10){
+    hoursVideo = "0"+hoursVideo;}
+  if (MinutesVideo<10){
+    MinutesVideo = "0"+MinutesVideo;
+  }
+ let clock = hoursVideo+":"+MinutesVideo;
+    if(clock<"13:00"&&clock>"07:00"){
+    video.src = './assets/Loop Video.mp4';
+    text.style.display = "flex";
+    text.innerHTML= "Kahvila palvelee 07.30-19.00" +"<br>"+" Aamiainen 07.30 - 10.00";
+    video.play();
+  } else{
+    text.style.display= "none";
+
+    video.src = './assets/videot/myyrmaki_video3.mp4';
+    video.play();
+  }
+
 
 };
 
 pMyyrmaki.addEventListener("click", myrtsi);
 pMyyrmaki.addEventListener("ontouchstart", myrtsi);
 
-
+/**
+ * Myyllypuron tietojen haku funktio
+ */
 
 const myllypuro = () => {
   campus.innerHTML = "Myllypuro";
@@ -186,26 +211,46 @@ const myllypuro = () => {
   transitData.getTransitData("1454140");
   transitData.getTransitData("1454112");
   transitData.getTransitData("1454111");
-
+  // Call every minute and update
   transitInterval = setInterval(() => {
     transitData.getTransitData("1454602");
     transitData.getTransitData("1454140");
     transitData.getTransitData("1454112");
     transitData.getTransitData("1454111");
   }, 60 * 1000);
+  /*
+  Näyttää klo 07.00-14:00 kahvi videon muuten kampuksen oman videon
+  */
+ let timeVideo = new Date();
+ let hoursVideo = timeVideo.getHours();
+ let MinutesVideo = timeVideo.getMinutes();
+ let text = document.querySelector('.coffeeVideo');
+ if (hoursVideo<10){
+   hoursVideo = "0"+hoursVideo;}
+ if (MinutesVideo<10){
+   MinutesVideo = "0"+MinutesVideo;
+ }
+let clock = hoursVideo+":"+MinutesVideo;
+   if(clock<"13:00"&&clock>"07:00"){
+   video.src = './assets/Loop Video.mp4';
+   text.style.display = "flex";
+   text.innerHTML= "Kahvila palvelee 07.30-17.00" +"<br>"+" Aamiainen 07.30 - 10.00";
+   video.play();
+ }  else{
 
   video.src = './assets/videot/myllypuro2_video.mp4';
+ }
   video.play();
+
 
 };
 
 pMyllypuro.addEventListener("click", myllypuro);
 pMyllypuro.addEventListener("ontouchstart", myllypuro);
 
-
-
-
-
+/**
+ * Karaportin tietojen haku funktio
+ */
 const karaportti = () => {
   campus.innerHTML = "Karaportti";
 
@@ -227,7 +272,7 @@ const karaportti = () => {
   transitData.getTransitData("2132208");
   transitData.getTransitData("2132225");
   transitData.getTransitData("2132226");
-
+  // Call and update the hsl every minute
   transitInterval = setInterval(() => {
     transitData.getTransitData("2132207");
     transitData.getTransitData("2132208");
@@ -235,7 +280,29 @@ const karaportti = () => {
     transitData.getTransitData("2132226");
   }, 60 * 1000);
 
+
+  /*
+  Näyttää klo 07.00-14:00 kahvi videon muuten kampuksen oman videon
+  */
+ let timeVideo = new Date();
+ let hoursVideo = timeVideo.getHours();
+ let MinutesVideo = timeVideo.getMinutes();
+ let text = document.querySelector('.coffeeVideo');
+ if (hoursVideo<10){
+   hoursVideo = "0"+hoursVideo;}
+ if (MinutesVideo<10){
+   MinutesVideo = "0"+MinutesVideo;
+ }
+let clock = hoursVideo+":"+MinutesVideo;
+   if(clock<"13:00"&&clock>"07:00"){
+   video.src = './assets/Loop Video.mp4';
+   text.style.display = "flex";
+   text.innerHTML= "Fazer ravintola avoinna" +"<br>"+ "ma-pe 8.00-14.30" +"<br>"+	"Lounas 10.30-13.00";
+   video.play();
+ }  else{
+
   video.src = './assets/videot/karamalmi_video2.mp4';
+ }
   video.play();
 
 };
@@ -244,7 +311,9 @@ pKaraportti.addEventListener("click", karaportti);
 pKaraportti.addEventListener("ontouchstart", karaportti);
 
 
-
+/**
+ * Arabian tietojen haku funktio
+ */
 
 const arabia = () => {
   campus.innerHTML = 'Arabia';
@@ -262,7 +331,7 @@ const arabia = () => {
   transitData.getTransitData("1230104");
   transitData.getTransitData("1230103");
   transitData.getTransitData("1230102");
-
+  // Call and update the hsl every minute
   transitInterval = setInterval(() => {
     transitData.getTransitData("1230101");
     transitData.getTransitData("1230104");
@@ -270,14 +339,37 @@ const arabia = () => {
     transitData.getTransitData("1230102");
   }, 60 * 1000);
 
-  video.src = './assets/videot/arabia_video2.mp4';
-  video.play();
+  /*
+  Näyttää klo 07.00-14:00 kahvi videon muuten kampuksen oman videon
+  */
+ let timeVideo = new Date();
+ let hoursVideo = timeVideo.getHours();
+ let MinutesVideo = timeVideo.getMinutes();
+ let text = document.querySelector('.coffeeVideo');
+ if (hoursVideo<10){
+   hoursVideo = "0"+hoursVideo;}
+ if (MinutesVideo<10){
+   MinutesVideo = "0"+MinutesVideo;
+ }
+let clock = hoursVideo+":"+MinutesVideo;
+   if(clock<"13:00"&&clock>"07:00"){
+   video.src = './assets/Loop Video.mp4';
+   text.style.display = "flex";
 
+   text.innerHTML= "Sodexo ravintola avoinna: 08.00 - 14.30";
+   video.play();
+ }  else{
+  video.src = './assets/videot/arabia_video2.mp4';
+ }
+  video.play();
 };
 
 pArabia.addEventListener("click", arabia);
 pArabia.addEventListener("ontouchstart", arabia);
 
+/**
+ * Oletuksena tulostaa myyrmäen ja suomeksi
+ */
 
 myrtsi();
 generalInfo();
