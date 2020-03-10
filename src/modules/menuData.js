@@ -14,7 +14,7 @@ const getInit = async (lang, num) =>{
       /*Hakee toimipaikka kohtaisen menun num muuttujan avulla
       - jos myllypuron nro niin poistaa elementin 1
       */
-      const data = await getCourses(num);
+   //S   const data = await getCourses(num);
       const objl = Object.keys(data.courses).length;
       /*Tulostaa toimipaikan nimen
 
@@ -31,29 +31,39 @@ const getInit = async (lang, num) =>{
 
     for(i; i<=objl; i++){
           let  courses = document.createElement("div");
+          let  coursesCategory = document.createElement("div");
+          coursesCategory.classList.add("coursesCategory");
+
           let food = document.createElement("p");
           let properties = document.createElement("p");
           let price = document.createElement("p");
+          let foodTheme =  document.createElement("p");
 
           /*Lang avulla tulostaa oikean kielisen menun*/
         if(lang==='fi'){
+          foodTheme.innerHTML = data.courses[i].category;
            food.innerHTML=  data.courses[i].title_fi;
            properties.innerHTML ='<strong>'+data.courses[i].properties +'</strong>';
            price.innerHTML= data.courses[i].price ;
+           coursesCategory.appendChild(foodTheme);
            courses.appendChild(food);
            courses.appendChild(price);
            courses.appendChild(properties);
 
+            menu.appendChild(coursesCategory);
             menu.appendChild(courses);
         }else{
+          foodTheme.innerHTML = data.courses[i].category;
           food.innerHTML=  data.courses[i].title_en;
           properties.innerHTML =data.courses[i].properties;
           price.innerHTML= data.courses[i].price ;
+          coursesCategory.appendChild(foodTheme);
           courses.appendChild(food);
           courses.appendChild(price);
           courses.appendChild(properties);
 
-          menu.appendChild(courses);
+           menu.appendChild(coursesCategory);
+           menu.appendChild(courses);
 
 
         }
@@ -61,9 +71,7 @@ const getInit = async (lang, num) =>{
         }
     }catch (e) {
        console.log('Error in displaying Sodexo menu');
-       const errorPicture = document.createElement('div');
        menu.innerHTML= "<img src='../assets/error_img_big.png' alt='error img' >";
-       menu.appendChild(errorPicture);
      }
   };
 const menuData = {getInit};

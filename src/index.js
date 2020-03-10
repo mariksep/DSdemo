@@ -120,7 +120,7 @@ const showingMenu = () => {
 
 menuLogo.addEventListener("click", showingMenu);
 menuLogo.addEventListener("ontouchstart", showingMenu);
-
+window.addEventListener("ontouchStart", showingMenu);
 
 const pMyllypuro = document.querySelector(".myllypuro");
 const pMyyrmaki = document.querySelector(".myyrmäki");
@@ -318,7 +318,7 @@ const arabia = () => {
   let menu = document.querySelector(".menu");
   menu.innerHTML="";
   menu.innerHTML="<img src='./assets/error_img_small.png' alt='error img'>";
- console.log("Nettisivujen uudistuksessa ilmenneiden ongelmien takia emme valitettavasti saa tällä hetkellä ruokalistaa sivuille näkyviin. Korjaamme asiaa parhaillaan.Ruokalistoja voi noutaa tulosteveriona ravintolasta. Pahoittelemme tilannetta"); 
+ console.log("Nettisivujen uudistuksessa ilmenneiden ongelmien takia emme valitettavasti saa tällä hetkellä ruokalistaa sivuille näkyviin. Korjaamme asiaa parhaillaan.Ruokalistoja voi noutaa tulosteveriona ravintolasta. Pahoittelemme tilannetta");
   WeatherData.displayWeatherData("00560");
 
   // Call and update the weather every hour

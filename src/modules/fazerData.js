@@ -81,9 +81,7 @@ const displayFazerMenu = async language => {
 
   } catch (error) {
     console.log('Error in displaying Fazer menu');
-    const errorPicture = document.createElement('div');
-    menu.innerHTML= "<img src='../assets/error_img_big.png' alt='error img' >";
-    menu.appendChild(errorPicture);
+    displayMenu.innerHTML= "<img src='../assets/error_img_big.png' alt='error img' >";
   }
 };
 
