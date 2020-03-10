@@ -12,10 +12,6 @@ const getInit = async (lang, num) =>{
 
     try{
 
-      const logo = document.createElement('div');
-      logo.classList.add('sodexoLogo');
-      menu.appendChild(logo);
-
       /*Hakee toimipaikka kohtaisen menun num muuttujan avulla
       - jos myllypuron nro niin poistaa elementin 1
       */
@@ -33,6 +29,10 @@ const getInit = async (lang, num) =>{
       menu.innerHTML= "";
       img.classList.add('img');
     //  menu.appendChild(img);
+
+    const logo = document.createElement('div');
+    logo.classList.add('sodexoLogo');
+    menu.appendChild(logo);
 
     for(i; i<=objl; i++){
           let  courses = document.createElement("div");
