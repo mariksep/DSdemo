@@ -9,7 +9,6 @@ let title = document.querySelector(".title");
 const getInit = async (lang, num) =>{
     let menu = document.querySelector(`.menu`);
     const img = document.createElement("div");
-    menu.innerHTML= "";
 
     try{
 
@@ -31,35 +30,45 @@ const getInit = async (lang, num) =>{
       if(num=== 158){
         i = 2;
       }
-
+      menu.innerHTML= "";
       img.classList.add('img');
     //  menu.appendChild(img);
 
     for(i; i<=objl; i++){
           let  courses = document.createElement("div");
+          let  coursesCategory = document.createElement("div");
+          coursesCategory.classList.add("coursesCategory");
+
           let food = document.createElement("p");
           let properties = document.createElement("p");
           let price = document.createElement("p");
+          let foodTheme =  document.createElement("p");
 
           /*Lang avulla tulostaa oikean kielisen menun*/
         if(lang==='fi'){
+          foodTheme.innerHTML = data.courses[i].category;
            food.innerHTML=  data.courses[i].title_fi;
            properties.innerHTML ='<strong>'+data.courses[i].properties +'</strong>';
            price.innerHTML= data.courses[i].price ;
+           coursesCategory.appendChild(foodTheme);
            courses.appendChild(food);
            courses.appendChild(price);
            courses.appendChild(properties);
 
+            menu.appendChild(coursesCategory);
             menu.appendChild(courses);
         }else{
+          foodTheme.innerHTML = data.courses[i].category;
           food.innerHTML=  data.courses[i].title_en;
           properties.innerHTML =data.courses[i].properties;
           price.innerHTML= data.courses[i].price ;
+          coursesCategory.appendChild(foodTheme);
           courses.appendChild(food);
           courses.appendChild(price);
           courses.appendChild(properties);
 
-          menu.appendChild(courses);
+           menu.appendChild(coursesCategory);
+           menu.appendChild(courses);
 
 
         }

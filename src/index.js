@@ -120,7 +120,7 @@ const showingMenu = () => {
 
 menuLogo.addEventListener("click", showingMenu);
 menuLogo.addEventListener("ontouchstart", showingMenu);
-
+window.addEventListener("ontouchStart", showingMenu);
 
 const pMyllypuro = document.querySelector(".myllypuro");
 const pMyyrmaki = document.querySelector(".myyrmäki");
