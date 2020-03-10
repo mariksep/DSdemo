@@ -11,7 +11,13 @@ const displayFazerMenu = async language => {
   // Get todays date in YYYY-MM-DD
   //const today = new Date().toISOString().slice(0, 10);
   const today = '2020-03-04';
+
   try {
+    // Add logo to html
+    const logo = document.createElement('div');
+    logo.classList.add('fasuLogo');
+    displayMenu.appendChild(logo);
+
     // Get menu-data, returns whole weeks menu
     const menuJSON = await getFazerMenuData(language, today);
 
@@ -19,7 +25,6 @@ const displayFazerMenu = async language => {
     const dayOfWeek = new Date().getDay();
 
     // Loop all courses of the day
-
     for (const setMenu of menuJSON.LunchMenus[dayOfWeek - 1].SetMenus) {
       // Save name of todays soup
       const soupOfTheDay = setMenu.Name;

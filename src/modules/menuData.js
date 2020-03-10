@@ -12,6 +12,11 @@ const getInit = async (lang, num) =>{
     menu.innerHTML= "";
 
     try{
+
+      const logo = document.createElement('div');
+      logo.classList.add('sodexoLogo');
+      menu.appendChild(logo);
+
       /*Hakee toimipaikka kohtaisen menun num muuttujan avulla
       - jos myllypuron nro niin poistaa elementin 1
       */
