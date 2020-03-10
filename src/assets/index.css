@@ -178,7 +178,7 @@ width:100vw;
   flex-direction: column;
 }
 .coursesCategory>p{
-  margin: 0.5vh;
+  margin-left: 0.5vh;
   color: var(--category);
 }
 .fazerCourses {
