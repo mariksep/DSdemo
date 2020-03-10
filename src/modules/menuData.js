@@ -9,6 +9,7 @@ let title = document.querySelector(".title");
 const getInit = async (lang, num) =>{
     let menu = document.querySelector(`.menu`);
     const img = document.createElement("div");
+    menu.innerHTML= "";
 
     try{
       /*Hakee toimipaikka kohtaisen menun num muuttujan avulla
@@ -25,7 +26,7 @@ const getInit = async (lang, num) =>{
       if(num=== 158){
         i = 2;
       }
-      menu.innerHTML= "";
+
       img.classList.add('img');
     //  menu.appendChild(img);
 

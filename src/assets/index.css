@@ -197,6 +197,15 @@ nav {
   text-align: center;
 }
 
+.menuError {
+  width: 50vw;
+  height: 50vh;
+  background-image: url("../assets/tapahtumalogo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .newsFeed {
   height: 100vh;
   display: flex;
