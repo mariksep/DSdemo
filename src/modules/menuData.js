@@ -62,7 +62,7 @@ const getInit = async (lang, num) =>{
     }catch (e) {
        console.log('Error in displaying Sodexo menu');
        const errorPicture = document.createElement('div');
-       menu.classList.add('menuError');
+       menu.innerHTML= "<img src='../assets/error_img_big.png' alt='error img' >";
        menu.appendChild(errorPicture);
      }
   };

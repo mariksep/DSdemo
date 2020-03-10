@@ -31,6 +31,8 @@ h3 {
   font-family: var(--Header-Font);
 }
 
+
+
 nav {
   display: flex;
   margin: 3vh;
@@ -44,7 +46,6 @@ nav {
 }
 
 .campus{
-  font-family: var(--Header-Font);
   font-size: 2vw;
 }
 
@@ -56,7 +57,7 @@ nav {
   display: none;
   width: 100%;
   justify-content: center;
-  
+
 }
 
 .hamburger-menu-content{
@@ -65,14 +66,13 @@ nav {
   width: 90%;
   justify-content: space-around;
   display: flex;
-  
+
 }
 
 .hamburger-menu-content > p {
   cursor: pointer;
   margin:1vh;
   font-size: 1.5vw;
-  font-family: var(--Header-Font);
 }
 
 .logo > img {
@@ -104,7 +104,7 @@ nav {
 
 .main_content {
   height: 100vh;
-
+width:100vw; 
 
 }
 
@@ -239,7 +239,7 @@ nav {
 
 .news > article > p {
   font-size: 1.5vw;
- /* line-height: 4vh;*/
+  line-height: 4vh;
   margin-bottom: 2vh;
 }
 
@@ -248,15 +248,10 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #000000;
+  width: 100%;
 
 }
-video {
-  height: 100%;
-  width: 100%;
-}
+
 .coffeeVideo{
   z-index: 1;
   position: absolute;
@@ -283,7 +278,7 @@ video {
   font-size: 4vh;
   margin-bottom: 5vh;
  margin-left: 5vh;
-  
+
 }
 
 .insta {
@@ -321,7 +316,4 @@ video {
   margin-top: 5vh;
 }
 
-.arabiamenu {
-font-size: 3vw;
 
-}

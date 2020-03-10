@@ -55,7 +55,10 @@ const getTransitData = async(id) =>{
           container.appendChild(card);
 
       }catch (e) {
-         console.log('error' + e);
+         console.log('Error in displaying HSL data');
+         const errorPicture = document.createElement('div');
+         constainer.innerHTML= "<img src='../assets/error_img_big.png' alt='error img' >";
+         container.appendChild(errorPicture);
        }
 
 

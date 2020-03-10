@@ -37,7 +37,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
-//viewCarousel(0, 10);
+viewCarousel(0, 15);
 
 /**
  * Tulostaa ja hakee kellon naviin
@@ -170,19 +170,17 @@ const myrtsi = () => {
     MinutesVideo = "0"+MinutesVideo;
   }
  let clock = hoursVideo+":"+MinutesVideo;
-    if(clock<"13:00"&&clock>"07:00"){
+
+    if(clock<"12:00"&&clock>"07:00"){
     video.src = './assets/Loop Video.mp4';
     text.style.display = "flex";
     text.innerHTML= "Kahvila palvelee 07.30-19.00" +"<br>"+" Aamiainen 07.30 - 10.00";
     video.play();
   } else{
     text.style.display= "none";
-
     video.src = './assets/videot/myyrmaki_video3.mp4';
     video.play();
   }
-
-
 };
 
 pMyyrmaki.addEventListener("click", myrtsi);
@@ -231,7 +229,7 @@ const myllypuro = () => {
    MinutesVideo = "0"+MinutesVideo;
  }
 let clock = hoursVideo+":"+MinutesVideo;
-   if(clock<"13:00"&&clock>"07:00"){
+   if(clock<"12:00"&&clock>"07:00"){
    video.src = './assets/Loop Video.mp4';
    text.style.display = "flex";
    text.innerHTML= "Kahvila palvelee 07.30-17.00" +"<br>"+" Aamiainen 07.30 - 10.00";
@@ -294,7 +292,7 @@ const karaportti = () => {
    MinutesVideo = "0"+MinutesVideo;
  }
 let clock = hoursVideo+":"+MinutesVideo;
-   if(clock<"13:00"&&clock>"07:00"){
+   if(clock<"12:00"&&clock>"07:00"){
    video.src = './assets/Loop Video.mp4';
    text.style.display = "flex";
    text.innerHTML= "Fazer ravintola avoinna" +"<br>"+ "ma-pe 8.00-14.30" +"<br>"+	"Lounas 10.30-13.00";
@@ -318,8 +316,9 @@ pKaraportti.addEventListener("ontouchstart", karaportti);
 const arabia = () => {
   campus.innerHTML = 'Arabia';
   let menu = document.querySelector(".menu");
-   menu.innerHTML="";
-   menu.innerHTML= "<span class='arabiamenu'> Nettisivujen uudistuksessa ilmenneiden ongelmien takia emme valitettavasti saa tällä hetkellä ruokalistaa sivuille näkyviin. Korjaamme asiaa parhaillaan. Ruokalistoja voi noutaa tulosteveriona ravintolasta. Pahoittelemme tilannetta.</span>";
+  menu.innerHTML="";
+  menu.innerHTML="<img src='./assets/error_img_small.png' alt='error img'>";
+ console.log("Nettisivujen uudistuksessa ilmenneiden ongelmien takia emme valitettavasti saa tällä hetkellä ruokalistaa sivuille näkyviin. Korjaamme asiaa parhaillaan.Ruokalistoja voi noutaa tulosteveriona ravintolasta. Pahoittelemme tilannetta"); 
   WeatherData.displayWeatherData("00560");
 
   // Call and update the weather every hour
@@ -352,7 +351,7 @@ const arabia = () => {
    MinutesVideo = "0"+MinutesVideo;
  }
 let clock = hoursVideo+":"+MinutesVideo;
-   if(clock<"13:00"&&clock>"07:00"){
+   if(clock<"12:00"&&clock>"07:00"){
    video.src = './assets/Loop Video.mp4';
    text.style.display = "flex";
 
@@ -373,5 +372,4 @@ pArabia.addEventListener("ontouchstart", arabia);
 
 myrtsi();
 generalInfo();
-
 
