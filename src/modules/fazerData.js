@@ -9,7 +9,8 @@ const displayFazerMenu = async language => {
   displayMenu.innerHTML= "";
 
   // Get todays date in YYYY-MM-DD
-  const today = new Date().toISOString().slice(0, 10);
+  //const today = new Date().toISOString().slice(0, 10);
+  const today = '2020-03-04';
   try {
     // Get menu-data, returns whole weeks menu
     const menuJSON = await getFazerMenuData(language, today);
@@ -58,7 +59,7 @@ const displayFazerMenu = async language => {
       courses.appendChild(food);
       courses.appendChild(allergies);
       displayMenu.append(courses);
-      courses.classList.add("courses");
+      courses.classList.add("fazerCourses");
     }
 
     // Add price-info
@@ -77,11 +78,12 @@ const displayFazerMenu = async language => {
     }
 
 
+    priceInfo.classList.add('priceInfo');
     displayMenu.appendChild(priceInfo);
 
   } catch (error) {
     console.log('Error in displaying Fazer menu');
-    displayMenu.innerHTML= "<img src='../assets/error_img_big.png' alt='error img' >";
+    displayMenu.innerHTML= "<img src='../assets/error_img_big.png' alt='error img'>";
   }
 };
 

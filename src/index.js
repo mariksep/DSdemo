@@ -37,7 +37,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
-viewCarousel(0, 15);
+//viewCarousel(0, 15);
 
 /**
  * Tulostaa ja hakee kellon naviin

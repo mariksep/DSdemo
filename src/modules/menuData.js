@@ -14,7 +14,7 @@ const getInit = async (lang, num) =>{
       /*Hakee toimipaikka kohtaisen menun num muuttujan avulla
       - jos myllypuron nro niin poistaa elementin 1
       */
-   //S   const data = await getCourses(num);
+      const data = await getCourses(num);
       const objl = Object.keys(data.courses).length;
       /*Tulostaa toimipaikan nimen
 
