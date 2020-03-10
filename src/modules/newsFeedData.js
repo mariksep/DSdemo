@@ -67,9 +67,7 @@ const displayNewsFeed = async (language) => {
     }
   } catch (error) {
     console.log('Error in printing newsFeed', error);
-    const errorPicture = document.createElement('div');
-    errorPicture.classList.add('menuError');
-    newsFeedSection.appendChild(errorPicture);
+    newsFeedSection.innerHTML= "<img src='../assets/error_img_big.png' alt='error img'>";
   }
 
 };

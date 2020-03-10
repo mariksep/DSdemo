@@ -61,7 +61,8 @@ const getInit = async (lang, num) =>{
         courses.classList.add("courses");
         }
     }catch (e) {
-       console.log('error' + e);
+       console.log('Error in displaying Sodexo menu');
+       menu.innerHTML= "<img src='../assets/error_img_big.png' alt='error img' >";
      }
   };
 const menuData = {getInit};
