@@ -30,10 +30,6 @@ const getInit = async (lang, num) =>{
       img.classList.add('img');
     //  menu.appendChild(img);
 
-    const logo = document.createElement('div');
-    logo.classList.add('sodexoLogo');
-    menu.appendChild(logo);
-
     for(i; i<=objl; i++){
           let  courses = document.createElement("div");
           let  coursesCategory = document.createElement("div");
@@ -47,7 +43,7 @@ const getInit = async (lang, num) =>{
           /*Lang avulla tulostaa oikean kielisen menun*/
         if(lang==='fi'){
           foodTheme.innerHTML = data.courses[i].category;
-           food.innerHTML=  data.courses[i].title_fi;
+           food.innerHTML=  '<strong>'+data.courses[i].title_fi +'</strong>';
            properties.innerHTML ='<strong>'+data.courses[i].properties +'</strong>';
            price.innerHTML= data.courses[i].price ;
            coursesCategory.appendChild(foodTheme);
@@ -59,8 +55,8 @@ const getInit = async (lang, num) =>{
             menu.appendChild(courses);
         }else{
           foodTheme.innerHTML = data.courses[i].category;
-          food.innerHTML=  data.courses[i].title_en;
-          properties.innerHTML =data.courses[i].properties;
+          food.innerHTML= '<strong>'+data.courses[i].title_en +'</strong>';
+          properties.innerHTML ='<strong>'+data.courses[i].properties +'</strong>';
           price.innerHTML= data.courses[i].price ;
           coursesCategory.appendChild(foodTheme);
           courses.appendChild(food);
