@@ -200,7 +200,7 @@ width:100vw;
 }
 
 .priceInfo {
-  margin-top: 5vw;
+  margin-top: 3vw;
   font-size: 1.5vw;
   font-weight: bold;
 }
@@ -345,3 +345,20 @@ width:100vw;
 }
 
 
+.fasuLogo {
+  width: 30vw;
+  height: 15vh;
+  background-image: url("../assets/Fazer-Food-Services.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.sodexoLogo {
+  width: 30vw;
+  height: 15vh;
+  background-image: url("../assets/sodexo-logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

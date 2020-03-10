@@ -37,7 +37,7 @@ const viewCarousel = (activeViewIndex, duration) => {
   setTimeout(() => viewCarousel(nextView, duration), duration * 1000);
 };
 
-//viewCarousel(0, 15);
+viewCarousel(0, 15);
 
 /**
  * Tulostaa ja hakee kellon naviin
@@ -257,8 +257,6 @@ const karaportti = () => {
 
   FazerData.displayFazerMenu(language);
 
-
-
   WeatherData.displayWeatherData("02610");
 
   // Call and update the weather every hour
@@ -368,7 +366,7 @@ pArabia.addEventListener("ontouchstart", arabia);
 
 /**
  * Oletuksena tulostaa myyrmäen ja suomeksi
- */
+*/
 
 myrtsi();
 generalInfo();
