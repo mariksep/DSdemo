@@ -13,10 +13,6 @@ const displayFazerMenu = async language => {
   const today = '2020-03-04';
 
   try {
-    // Add logo to html
-    const logo = document.createElement('div');
-    logo.classList.add('fasuLogo');
-    displayMenu.appendChild(logo);
 
     // Get menu-data, returns whole weeks menu
     const menuJSON = await getFazerMenuData(language, today);

@@ -30,10 +30,6 @@ const getInit = async (lang, num) =>{
       img.classList.add('img');
     //  menu.appendChild(img);
 
-    const logo = document.createElement('div');
-    logo.classList.add('sodexoLogo');
-    menu.appendChild(logo);
-
     for(i; i<=objl; i++){
           let  courses = document.createElement("div");
           let  coursesCategory = document.createElement("div");

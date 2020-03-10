@@ -18,17 +18,20 @@ const viewCarousel = (activeViewIndex, duration) => {
   const views = document.getElementsByClassName("main_content");
   const nav = document.querySelector("nav");
   const hamburgerMenu = document.querySelector(".hamburger-menu");
+
   for (const view of views) {
     view.style.display = "none";
   }
   views[activeViewIndex].style.display = "block";
-  // Hide navbar from the video section
+
+  // Hide navbar from the video/news/event sections
   if (activeViewIndex >= 2) {
     nav.style.display = "none";
     hamburgerMenu.style.display = "none";
   } else {
     nav.style.display = "flex";
   }
+
   let nextView = activeViewIndex + 1;
   if (nextView === views.length) {
     nextView = 0;
@@ -37,6 +40,7 @@ const viewCarousel = (activeViewIndex, duration) => {
 };
 
 //viewCarousel(0, 15);
+
 
 /**
  * Tulostaa ja hakee kellon naviin
@@ -60,6 +64,7 @@ const timeNow = () => {
 };
 setInterval(timeNow, 600);
 
+
 /**
  * Näyttää uutis ja tapahtuma sivun language arvon kielellä
  */
@@ -67,6 +72,7 @@ const generalInfo = () => {
   EventData.displayEvent(language);
   NewsFeedData.displayNewsFeed(language);
 };
+
 
 /**
  * Vaihtaa kielen kampuksen mukaan
@@ -81,7 +87,9 @@ const changeLanguage = () => {
       langButton.textContent = "FI";
     }
   }
+
   const currentCampus = campus.textContent;
+
   if (currentCampus === "Myyrmäki") {
     myrtsi();
   } else if (currentCampus === "Myllypuro") {
@@ -91,6 +99,7 @@ const changeLanguage = () => {
   } else {
     arabia();
   }
+
   generalInfo();
 };
 
@@ -102,23 +111,29 @@ for (const langButton of languageButtons) {
   langButton.addEventListener("ontouchstart", changeLanguage);
 }
 
+
 /**
- * Piilottaa ja näyttää menun jossa on listattu kaikki kampukset
+ * Show/hide all the listed campuses
  */
 const hamburgerMenu = document.querySelector(".hamburger-menu");
-const menuLogo = document.querySelector(".menuLogo");
 
-const showingMenu = () => {
-  if (hamburgerMenu.style.display === "flex") {
-    hamburgerMenu.style.display = "none";
+const showingMenu = e => {
+  // When clicking the hamburger-icon, toggle list between show/hide
+  if (e.target.className === "menuLogo") {
+    if (hamburgerMenu.style.display === "none") {
+      hamburgerMenu.style.display = "flex";
+    } else {
+      hamburgerMenu.style.display = "none";
+    }
+
+    // Hide list when clicking the window
   } else {
-    hamburgerMenu.style.display = "flex";
+    hamburgerMenu.style.display = "none";
   }
 };
 
-menuLogo.addEventListener("click", showingMenu);
-menuLogo.addEventListener("ontouchstart", showingMenu);
-window.addEventListener("ontouchStart", showingMenu);
+window.addEventListener("click", showingMenu);
+
 
 const pMyllypuro = document.querySelector(".myllypuro");
 const pMyyrmaki = document.querySelector(".myyrmäki");
@@ -186,6 +201,7 @@ const myrtsi = () => {
 pMyyrmaki.addEventListener("click", myrtsi);
 pMyyrmaki.addEventListener("ontouchstart", myrtsi);
 
+
 /**
  * Myyllypuron tietojen haku funktio
  */
@@ -244,6 +260,7 @@ const myllypuro = () => {
 
 pMyllypuro.addEventListener("click", myllypuro);
 pMyllypuro.addEventListener("ontouchstart", myllypuro);
+
 
 /**
  * Karaportin tietojen haku funktio
@@ -307,6 +324,7 @@ const karaportti = () => {
 
 pKaraportti.addEventListener("click", karaportti);
 pKaraportti.addEventListener("ontouchstart", karaportti);
+
 
 /**
  * Arabian tietojen haku funktio
