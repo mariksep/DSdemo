@@ -89,7 +89,6 @@ nav {
 }
 
 .langbutton {
-  width: 50px;
   border: solid var(--orange) 1px;
   border-radius: 15px;
   padding: 1vh;
@@ -175,7 +174,6 @@ width:100vw;
 }
 
 .coursesCategory > p {
-  margin: 0.5vh;
   color: var(--category);
 }
 
@@ -184,7 +182,7 @@ width:100vw;
   width: 100%;
   display: flex;
   font-size: 1.5vw;
-  border-bottom:  1px solid #3333331f;
+  border-bottom:  0.5px solid #3333331f;
 
 }
 
