@@ -1,6 +1,19 @@
 # DSdemo
-
-##Digital Signage Project
+#Digital Signage Project
+<div>
+    <h2>The techniques we used</h2>
+ <ul>
+        <li>
+            JavaScript (ES6 ->)
+        </li>
+         <li>
+           HTML
+        </li>
+          <li>
+           CSS
+        </li>
+      </ul>
+</div>
 <p> 
 The project is done on a digital signage screen. The project was a school job and the client was Metropolia University of Applied Sciences
 </p>
