@@ -1,5 +1,5 @@
-# DSdemo
-#Digital Signage Project
+# DSdemo, Digital Signage Project
+
 <div>
     <h2>The techniques we used</h2>
  <ul>
@@ -31,7 +31,7 @@ school organization news
 </h2>
 <p> 
 is a video page that advertises seven to twelve coffee shop and otherwise campus - specific videos</p>
-<h2>fifth page is foundation page
+<h2>Fifth page is foundation page
 
 </h2>
 <img src="https://github.com/mariksep/DSdemo/blob/master/add.JPG" alt="first page" >
