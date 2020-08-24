@@ -1,5 +1,9 @@
 # DSdemo, Digital Signage Project
 
+```
+npm start
+```
+
 <div>
     <h2>The techniques we used</h2>
  <ul>
