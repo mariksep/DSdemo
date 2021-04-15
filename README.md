@@ -24,7 +24,7 @@ The project is done on a digital signage screen. The project was a school job an
 <p><a href="http://users.metropolia.fi/~mariksep/vuosi2_periodi_3/projekti/">Preview</a></p>
 <h2>First page with bus schedules</h2>
 <img src="https://github.com/mariksep/DSdemo/blob/master/front.JPG" alt="first page" >
-<h2>Second page with school canteen menu
+<h2>Second page with school restaurant menu
 </h2>
 <img src="https://github.com/mariksep/DSdemo/blob/master/food.JPG" alt="first page" >
 <h2>Third page with 
